@@ -85,15 +85,15 @@ public enum TFM_PlayerRank
         {
             return SYS;
         }
-        if (sender.getName().equals("SupItsDillon"))
+        if (sender.getName().equals("Cyro1999"))
         {
             return SECURITY;
         }
 
-        if (sender.getName().equals("aggelosQQ"))
-        {
-            return EXECUTIVE;
-        }
+      //  if (sender.getName().equals("aggelosQQ"))
+       // {
+      //      return EXECUTIVE;
+     //   }
 
         if (DEVELOPERS.contains(sender.getName()))
         {
