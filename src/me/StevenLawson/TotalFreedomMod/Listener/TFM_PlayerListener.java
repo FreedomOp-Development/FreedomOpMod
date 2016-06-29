@@ -982,6 +982,6 @@ public class TFM_PlayerListener implements Listener
             player.kickPlayer(ChatColor.RED + "Fuck off. :)");
         }
         player.sendMessage(ChatColor.BLUE + "This server is using FreedomOPMod, a highly modified version of the TotalFreedomMod, created by:");
-        player.sendMessage(ChatColor.BLUE + "Madgeek1450, DarthSalamon, Buildcarter8, Robo_Lord, PieGuy7896, Dragonfire147, cowgomooo12, CrafterSmith12, SupItsDillon, Versatiliity, and tylerhyperHD.");
+        player.sendMessage(ChatColor.BLUE + "Madgeek1450, DarthSalamon, Buildcarter8, Robo_Lord, PieGuy7896, Dragonfire147, cowgomooo12, CrafterSmith12, SupItsDillon, ImJustLazy, and tylerhyperHD.");
     }
 }
