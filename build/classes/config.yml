@@ -101,6 +101,8 @@ blocked_commands:
 
 
   # Superadmin commands
+  - 's:b:/co:Please let an admin do this, thanks!'
+  - 's:b:/coreprotect:Please let an admin do this, thanks!'
   - 's:b:/kick:_'
   - 's:b:/socialspy:_'
   - 's:b:/kill:_'
