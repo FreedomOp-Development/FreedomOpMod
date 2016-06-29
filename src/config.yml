@@ -19,9 +19,6 @@ server:
   owners:
     - CrafterSmith12
 
-# Apps Enabled
-  applications_open: false
-  
   # URL players should appeal for bans at
   ban_url: http://to.fop.us.to/BanAppeal
 
@@ -167,6 +164,7 @@ disable:
 landmines_enabled: false
 mp44_enabled: false
 tossmob_enabled: false
+applications_open: false
 
 # Moblimiter:
 

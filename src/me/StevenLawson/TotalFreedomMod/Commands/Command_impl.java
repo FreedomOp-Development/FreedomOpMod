@@ -94,8 +94,9 @@ public class Command_impl extends TFM_Command
                         p.setHealth(0.0D);
                         p.closeInventory();
                         p.getInventory().clear();
-                        TFM_WorldEditBridge.undo(p, 15);
-                        TFM_RollbackManager.rollback(p.getName());
+                        server.dispatchCommand(sender, "co rb u:" + p.getName() + " t:24h r:global");
+//                        TFM_WorldEditBridge.undo(p, 15);
+//                        TFM_RollbackManager.rollback(p.getName());
                     }
                 }.runTaskLater(this.plugin, 60L);
 
