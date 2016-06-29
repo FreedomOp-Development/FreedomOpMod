@@ -926,10 +926,20 @@ public class TFM_PlayerListener implements Listener
             player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&cFounder&8] &9" + player.getName()));
             TFM_PlayerData.getPlayerData(player).setTag("&8[&cFounder&8]");
         }
+        else if (TFM_ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()))
+        {
+            //Set tag
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&9Owner&8] &9" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&9Owner&8]");
+        }
         else if (TFM_Util.DEVELOPERS.contains(player.getName()))
         {
             player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Dev&8] &5" + player.getName()));
             TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
+        }
+        else if (TFM_Util.EXECS.contains(player.getName())) {
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&eSpec-Exec&8] &5" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&eSpec-Exec&8]");
         }
         else if (TFM_Util.SYS.contains(player.getName()))
         {

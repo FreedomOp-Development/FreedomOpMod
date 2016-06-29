@@ -2,17 +2,18 @@ package me.StevenLawson.TotalFreedomMod;
 
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.EXECS;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public enum TFM_PlayerRank
 {
-    EXECUTIVE("an " + ChatColor.GRAY + "Executive", ChatColor.GRAY + "[Executive]"),
     WEB("the " + ChatColor.YELLOW + "Chief Web Developer!", ChatColor.YELLOW + "[Chief Web Developer]"),
     CDEV("the " + ChatColor.DARK_PURPLE + "Chief Developer!", ChatColor.DARK_PURPLE + "[Chief Developer]"),
     SECURITY("the chief of " + ChatColor.GRAY + "Security", ChatColor.RED + "[Chief of Security]"),
     SYS("a " + ChatColor.DARK_RED + "System Admin", ChatColor.DARK_RED + "[Sys-Admin]"),
+    SPEC_EXEC("a " + ChatColor.YELLOW + "Special Executive", ChatColor.DARK_RED + "[Spec-Exec]"),
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
@@ -69,10 +70,6 @@ public enum TFM_PlayerRank
         {
             return IMPOSTOR;
         }
-        if (sender.getName().equals("lynxlps"))
-        {
-            return EXECUTIVE;
-        }
         if (sender.getName().equals("buildcarter8"))
         {
             return CDEV;
@@ -90,10 +87,14 @@ public enum TFM_PlayerRank
             return SECURITY;
         }
 
-      //  if (sender.getName().equals("aggelosQQ"))
-       // {
-      //      return EXECUTIVE;
-     //   }
+        //  if (sender.getName().equals("aggelosQQ"))
+        // {
+        //      return EXECUTIVE;
+        //   }
+        if (EXECS.contains(sender.getName()))
+        {
+            return SPEC_EXEC;
+        }
 
         if (DEVELOPERS.contains(sender.getName()))
         {
