@@ -4,7 +4,7 @@ import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class FOPM_RankConverter
+public class FOPM_Util
 {
     public static boolean isOwner(Player player)
     {

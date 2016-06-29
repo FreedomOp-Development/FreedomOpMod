@@ -1,6 +1,6 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.StevenLawson.TotalFreedomMod.FOPM_RankConverter;
+import me.StevenLawson.TotalFreedomMod.FOPM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_CommandBlocker;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
 import org.apache.commons.lang3.StringUtils;
@@ -44,7 +44,7 @@ public class Command_wildcard extends TFM_Command
         }
         if (args[0].equals("survival") || args[0].equals("creative"))
         {
-            if(FOPM_RankConverter.isOwner(sender) || DEVELOPERS.contains(sender.getName()))
+            if(FOPM_Util.isOwner(sender) || DEVELOPERS.contains(sender.getName()))
             {
                 // let it run through if the person is of a high rank
             }

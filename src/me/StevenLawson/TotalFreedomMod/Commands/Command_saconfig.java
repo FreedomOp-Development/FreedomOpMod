@@ -2,7 +2,6 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.TFM_Admin;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
-import me.StevenLawson.TotalFreedomMod.TFM_Convert;
 import me.StevenLawson.TotalFreedomMod.TFM_DepreciationAggregator;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
@@ -76,7 +75,7 @@ public class Command_saconfig extends TFM_Command
 
                     TFM_AdminList.saveAll();
 
-                    sender.sendMessage(ChatColor.GRAY + TFM_Convert.toString(counter) + " IPs removed.");
+                    sender.sendMessage(ChatColor.GRAY + Integer.toString(counter) + " IPs removed.");
                     sender.sendMessage(ChatColor.GRAY + admin.getIps().get(0) + " is now your only IP address");
                 }
                 else

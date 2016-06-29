@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import me.StevenLawson.TotalFreedomMod.Bridge.TFM_BukkitTelnetListener;
 import me.StevenLawson.TotalFreedomMod.Bridge.TFM_WorldEditListener;
 import me.StevenLawson.TotalFreedomMod.Commands.TFM_CommandHandler;
 import me.StevenLawson.TotalFreedomMod.Commands.TFM_CommandLoader;
@@ -44,7 +45,7 @@ public class TotalFreedomMod extends JavaPlugin
     public static final String SUPERADMIN_FILENAME = "superadmin.yml";
     public static final String PERMBAN_FILENAME = "permban.yml";
     public static final String PROTECTED_AREA_FILENAME = "protectedareas.dat";
-    public static final String SAVED_FLAGS_FILE = "savedflags.dat";
+    public static final String SAVED_FLAGS_FILENAME = "savedflags.dat";
     //
     public static final String MSG_NO_PERMS = ChatColor.BLUE + "You do not have permission to use this command.";
     public static final String YOU_ARE_OP = ChatColor.GREEN + "You are now op!";
@@ -128,6 +129,7 @@ public class TotalFreedomMod extends JavaPlugin
         pm.registerEvents(new TFM_WeatherListener(), plugin);
         pm.registerEvents(new TFM_ServerListener(), plugin);
         pm.registerEvents(new TFM_WorldEditListener(), plugin);
+        pm.registerEvents(new TFM_BukkitTelnetListener(), plugin);
 
         try
         {

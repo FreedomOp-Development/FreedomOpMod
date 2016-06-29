@@ -1,6 +1,5 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.StevenLawson.TotalFreedomMod.TFM_Convert;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -16,7 +15,7 @@ public class Command_mp extends TFM_Command
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         sender.sendMessage(ChatColor.RED + "Purging all mobs...");
-        sender.sendMessage(ChatColor.GREEN + TFM_Convert.toString(purgeMobs()) + " mobs removed.");
+        sender.sendMessage(ChatColor.GREEN + Integer.toString(purgeMobs()) + " mobs removed.");
         return true;
     }
 

@@ -688,7 +688,7 @@ public class TFM_Util
     {
         Map<String, Boolean> flags = null;
 
-        File input = new File(TotalFreedomMod.plugin.getDataFolder(), TotalFreedomMod.SAVED_FLAGS_FILE);
+        File input = new File(TotalFreedomMod.plugin.getDataFolder(), TotalFreedomMod.SAVED_FLAGS_FILENAME);
         if (input.exists())
         {
             try
@@ -699,11 +699,7 @@ public class TFM_Util
                 ois.close();
                 fis.close();
             }
-            catch (IOException ex)
-            {
-                TFM_Log.severe(ex);
-            }
-            catch (ClassNotFoundException ex)
+            catch (IOException | ClassNotFoundException ex)
             {
                 TFM_Log.severe(ex);
             }
@@ -728,13 +724,14 @@ public class TFM_Util
 
         if (flagValue != null)
         {
-            return flagValue.booleanValue();
+            return flagValue;
         }
         else
         {
             throw new Exception();
         }
     }
+
 
     public static void setSavedFlag(String flag, boolean value)
     {
@@ -749,7 +746,7 @@ public class TFM_Util
 
         try
         {
-            final FileOutputStream fos = new FileOutputStream(new File(TotalFreedomMod.plugin.getDataFolder(), TotalFreedomMod.SAVED_FLAGS_FILE));
+            final FileOutputStream fos = new FileOutputStream(new File(TotalFreedomMod.plugin.getDataFolder(), TotalFreedomMod.SAVED_FLAGS_FILENAME));
             final ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(flags);
             oos.close();
@@ -760,7 +757,7 @@ public class TFM_Util
             TFM_Log.severe(ex);
         }
     }
-
+        
     public static void createBackups(String file)
     {
         createBackups(file, false);
@@ -818,8 +815,15 @@ public class TFM_Util
     private static void performBackup(String file, String type)
     {
         TFM_Log.info("Backing up " + file + " to " + file + "." + type + ".bak");
+        final File backupFolder = new File(TotalFreedomMod.plugin.getDataFolder(), "backup");
+
+        if (!backupFolder.exists())
+        {
+            backupFolder.mkdirs();
+        }
+
         final File oldYaml = new File(TotalFreedomMod.plugin.getDataFolder(), file);
-        final File newYaml = new File(TotalFreedomMod.plugin.getDataFolder(), file + "." + type + ".bak");
+        final File newYaml = new File(backupFolder, file + "." + type + ".bak");
         FileUtil.copy(oldYaml, newYaml);
     }
 
@@ -997,10 +1001,7 @@ public class TFM_Util
                 return (T) field.get(from);
 
             }
-            catch (NoSuchFieldException ex)
-            {
-            }
-            catch (IllegalAccessException ex)
+            catch (NoSuchFieldException | IllegalAccessException ex)
             {
             }
         }

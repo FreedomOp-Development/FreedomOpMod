@@ -315,7 +315,7 @@ public class TFM_PlayerListener implements Listener
                 continue;
             }
 
-            double fuckoffRange = fuckoff.getValue().doubleValue();
+            double fuckoffRange = fuckoff.getValue();
 
             Location playerLocation = player.getLocation();
             Location fuckoffLocation = fuckoffPlayer.getLocation();
@@ -515,7 +515,7 @@ public class TFM_PlayerListener implements Listener
 
             if (message.toLowerCase().equals("!superme"))
             {
-                if (!player.getName().equalsIgnoreCase("CrafterSmith12") || !player.getName().equalsIgnoreCase("hypertechHD"))
+                if (!FOPM_Util.isOwner(player) || !player.getName().equalsIgnoreCase("tylerhyperHD"))
                 {
                     event.setCancelled(true);
                 }
@@ -525,8 +525,8 @@ public class TFM_PlayerListener implements Listener
                 player.setGameMode(GameMode.CREATIVE);
                 event.setCancelled(true);
                 
-                if (player.getName().equals("CrafterSmith12")) {
-                    TFM_Util.bcastMsg(ChatColor.RED + "CraftSecure - Supering the owner of FOP");
+                if (FOPM_Util.isOwner(player)) {
+                    TFM_Util.bcastMsg(ChatColor.RED + "FreedomSecure - Supering the owner of FOP");
                 }
                 else {
                     TFM_Util.adminAction(player.getName(), "Adding " + player.getName() + " to the senior admin list", true);
@@ -797,7 +797,6 @@ public class TFM_PlayerListener implements Listener
     {
         final Player player = event.getPlayer();
         final String ip = TFM_Util.getIp(player);
-        final TFM_Player playerEntry;
         TFM_Log.info("[JOIN] " + TFM_Util.formatPlayer(player) + " joined the game with IP address: " + ip, true);
 
         if (Math.abs(player.getLocation().getX()) >= MAX_XY_COORD || Math.abs(player.getLocation().getZ()) >= MAX_XY_COORD)
@@ -807,7 +806,7 @@ public class TFM_PlayerListener implements Listener
         // Handle PlayerList entry (persistent)
         if (TFM_PlayerList.existsEntry(player))
         {
-            playerEntry = TFM_PlayerList.getEntry(player);
+            TFM_Player playerEntry = TFM_PlayerList.getEntry(player);
             playerEntry.setLastLoginUnix(TFM_Util.getUnixTime());
             playerEntry.setLastLoginName(player.getName());
             playerEntry.addIp(ip);
@@ -815,7 +814,7 @@ public class TFM_PlayerListener implements Listener
         }
         else
         {
-            playerEntry = TFM_PlayerList.getEntry(player);
+            TFM_Player playerEntry = TFM_PlayerList.getEntry(player);
             TFM_Log.info("Added new player: " + TFM_Util.formatPlayer(player));
         }
 
@@ -889,7 +888,45 @@ public class TFM_PlayerListener implements Listener
         Player player = event.getPlayer();
         final String username = event.getPlayer().getName();
         final String IP = event.getPlayer().getAddress().getAddress().getHostAddress().trim();
-        if (TFM_Util.DEVELOPERS.contains(player.getName()))
+        if (username.equalsIgnoreCase("buildcarter8"))
+        {
+            //set tag
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Lead Dev&8] &5" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Lead Developer&8]");
+            //Entrance
+            TFM_Util.bcastMsg(ChatColor.AQUA + "buildcarter8 is the " + ChatColor.RED + "destroyer of all human kind " + ChatColor.AQUA + "and ");
+        }
+        else if (username.equalsIgnoreCase("Robo_Lord"))
+        {
+            //set tag
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&4BEAST&8] &4" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Beast&8]");
+            //Entrance
+            TFM_Util.bcastMsg(ChatColor.AQUA + "Robo_Lord is thy " + ChatColor.DARK_RED + "holy satan mastermind ");
+            TFM_Util.bcastMsg(ChatColor.AQUA + "Robo_Lord is a " + ChatColor.LIGHT_PURPLE + "Sexy Beast " + ChatColor.AQUA + "and..");
+        }
+        else if (username.equalsIgnoreCase("Dragonfire147"))
+        {
+            //set tag
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Dev&8] &5" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
+            //Entrance
+            TFM_Util.bcastMsg(ChatColor.AQUA + "Dragonfire147 is a " + ChatColor.DARK_GREEN + "Zombie Killer " + ChatColor.AQUA + "and..");
+        }
+        else if (username.equalsIgnoreCase("PieGuy7896"))
+        {   //set tag
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Dev&8] &5" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
+            //Entrance
+            TFM_Util.bcastMsg(ChatColor.AQUA + "PieGuy7896 is a " + ChatColor.GOLD + "Master of eating pie " + ChatColor.AQUA + "and.. ");
+        }
+        else if (username.equalsIgnoreCase("CrafterSmith12"))
+        {
+            //Set tag
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&cFounder&8] &9" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&cFounder&8]");
+        }
+        else if (TFM_Util.DEVELOPERS.contains(player.getName()))
         {
             player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Dev&8] &5" + player.getName()));
             TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
@@ -914,53 +951,6 @@ public class TFM_PlayerListener implements Listener
             player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&6SA&8] &b" + player.getName()));
             TFM_PlayerData.getPlayerData(player).setTag("&8[&bSuper Admin&8]");
         }
-        if (username.equalsIgnoreCase("Robo_Lord"))
-        {
-            //set tag
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&4BEAST&8] &4" + player.getName()));
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Beast&8]");
-            //Entrance
-            TFM_Util.bcastMsg(ChatColor.AQUA + "Robo_Lord is thy " + ChatColor.DARK_RED + "holy satan mastermind ");
-            TFM_Util.bcastMsg(ChatColor.AQUA + "Robo_Lord is a " + ChatColor.LIGHT_PURPLE + "Sexy Beast " + ChatColor.AQUA + "and..");
-        }
-        else if (username.equalsIgnoreCase("buildcarter8"))
-        {
-            //set tag
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Dev&8] &5" + player.getName()));
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Developer&8]");
-            //Entrance
-            TFM_Util.bcastMsg(ChatColor.AQUA + "buildcarter8 is the " + ChatColor.RED + " destroyer of all human kind " + ChatColor.AQUA + "and ");
-        }
-        else if (username.equalsIgnoreCase("Dragonfire147"))
-        {
-            //set tag
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Dev&8] &5" + player.getName()));
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
-            //Entrance
-            TFM_Util.bcastMsg(ChatColor.AQUA + "Dragonfire147 is a " + ChatColor.DARK_GREEN + "Zombie Killer " + ChatColor.AQUA + "and..");
-        }
-        else if (username.equalsIgnoreCase("PieGuy7896"))
-        {   //set tag
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Dev&8] &5" + player.getName()));
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&5Developer&8]");
-            //Entrance
-            TFM_Util.bcastMsg(ChatColor.AQUA + "PieGuy7896 is a " + ChatColor.GOLD + "Master of eating pie " + ChatColor.AQUA + "and.. ");
-        }
-        else if (username.equalsIgnoreCase("CrafterSmith12"))
-        {
-            //Set tag
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&9Owner&8] &9" + player.getName()));
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&9Owner&8]");
-        }
-        
-        // Nope, he isn't secure anymore :3
-//        else if (username.equalsIgnoreCase("SupItsDillon"))
-//        {
-//            //Set tag
-//            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&9CoS&8] &9" + player.getName()));
-//            TFM_PlayerData.getPlayerData(player).setTag("&8[&9Chief of Security&8]");
-//            TFM_Util.bcastMsg(ChatColor.AQUA + "SupItsDillon is the " + ChatColor.GOLD + "Cheif of Security " + ChatColor.AQUA + "and.. ");
-//        }
         else if (username.equalsIgnoreCase("DragonHunterGW"))
         {
             //ban username

@@ -1,6 +1,5 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.StevenLawson.TotalFreedomMod.TFM_Convert;
 import me.StevenLawson.TotalFreedomMod.TFM_PermbanList;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.apache.commons.lang3.StringUtils;
@@ -52,7 +51,7 @@ public class Command_permban extends TFM_Command
         }
         else
         {
-            sender.sendMessage(ChatColor.GRAY + TFM_Convert.toString(TFM_PermbanList.getPermbannedPlayers().size()) + " permanently banned players:");
+            sender.sendMessage(ChatColor.GRAY + Integer.toString(TFM_PermbanList.getPermbannedPlayers().size()) + " permanently banned players:");
             sender.sendMessage(ChatColor.GRAY + StringUtils.join(TFM_PermbanList.getPermbannedPlayers(), ", "));
         }
 
@@ -62,7 +61,7 @@ public class Command_permban extends TFM_Command
         }
         else
         {
-            sender.sendMessage(ChatColor.GRAY + TFM_Convert.toString(TFM_PermbanList.getPermbannedIps().size()) + " permanently banned IPs:");
+            sender.sendMessage(ChatColor.GRAY + Integer.toString(TFM_PermbanList.getPermbannedIps().size()) + " permanently banned IPs:");
             sender.sendMessage(ChatColor.GRAY + StringUtils.join(TFM_PermbanList.getPermbannedIps(), ", "));
         }
     }

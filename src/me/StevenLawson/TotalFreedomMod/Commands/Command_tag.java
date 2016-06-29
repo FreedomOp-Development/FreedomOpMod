@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
-import me.StevenLawson.TotalFreedomMod.TFM_Convert;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.apache.commons.lang3.StringUtils;
@@ -45,7 +44,7 @@ public class Command_tag extends TFM_Command {
                     }
                 }
 
-                sender.sendMessage(ChatColor.GREEN + TFM_Convert.toString(count) + " tag(s) removed.");
+                sender.sendMessage(ChatColor.GREEN + Integer.toString(count) + " tag(s) removed.");
                 return true;
             }
 
