@@ -1,6 +1,6 @@
 name: FreedomOpMod
 main: me.StevenLawson.TotalFreedomMod.TotalFreedomMod
-version: 7.2.8
+version: 7.2.9
 description: Plugin for the FreedomOp server.
 softdepend: [BukkitTelnet, LibsDisguises, WorldEdit, Essentials]
 authors: [Madgeek1450, DarthSalamon]
