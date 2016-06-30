@@ -891,8 +891,8 @@ public class TFM_PlayerListener implements Listener
         if (username.equalsIgnoreCase("buildcarter8"))
         {
             //set tag
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Lead Dev&8] &5" + player.getName()));
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Lead Developer&8]");
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Chief Dev&8] &5" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Chief Developer&8]");
             //Entrance
             TFM_Util.bcastMsg(ChatColor.AQUA + "buildcarter8 is the " + ChatColor.RED + "destroyer of all human kind " + ChatColor.AQUA + "and ");
         }
