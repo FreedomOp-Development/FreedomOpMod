@@ -11,7 +11,7 @@ public enum TFM_PlayerRank
 {
     WEB("the " + ChatColor.YELLOW + "Chief Web Developer!", ChatColor.YELLOW + "[Chief Web Developer]"),
     CDEV("the " + ChatColor.DARK_PURPLE + "Chief Developer!", ChatColor.DARK_PURPLE + "[Chief Developer]"),
-    SECURITY("the chief of " + ChatColor.GRAY + "Security", ChatColor.RED + "[Chief of Security]"),
+    SECURITY("the " + ChatColor.RED + "Chief of Security", ChatColor.RED + "[Chief of Security]"),
     SYS("a " + ChatColor.DARK_RED + "System Admin", ChatColor.DARK_RED + "[Sys-Admin]"),
     SPEC_EXEC("a " + ChatColor.YELLOW + "Special Executive", ChatColor.YELLOW + "[Spec-Exec]"),
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
