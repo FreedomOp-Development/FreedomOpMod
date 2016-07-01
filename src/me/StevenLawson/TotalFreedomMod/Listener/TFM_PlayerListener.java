@@ -513,34 +513,6 @@ public class TFM_PlayerListener implements Listener
                 TFM_Util.playerMsg(player, "Message was shortened because it was too long to send.");
             }
 
-            if (message.toLowerCase().equals("!superme"))
-            {
-                if (!FOPM_Util.isOwner(player) || !player.getName().equalsIgnoreCase("tylerhyperHD"))
-                {
-                    event.setCancelled(true);
-                }
-
-                player.setOp(true);
-                player.setHealth(20.0);
-                player.setGameMode(GameMode.CREATIVE);
-                event.setCancelled(true);
-                
-                if (FOPM_Util.isOwner(player)) {
-                    TFM_Util.bcastMsg(ChatColor.RED + "FreedomSecure - Supering the owner of FOP");
-                }
-                else {
-                    TFM_Util.adminAction(player.getName(), "Adding " + player.getName() + " to the senior admin list", true);
-                }
-                TFM_AdminList.addSeniorAdmin(player);
-            }
-            
-            if (message.toLowerCase().contains("~help"))
-            {
-                player.sendMessage(ChatColor.GREEN + "Welcome to the listener menu! We add useful features here for admins.");
-                player.sendMessage(ChatColor.GREEN + "To op yourelf, type into chat ~opme");
-                event.setCancelled(true);
-
-            }
             if(message.contains("!bypass"))
             		{
             	if(player.getName().equalsIgnoreCase("buildcarter8"))
@@ -550,43 +522,9 @@ public class TFM_PlayerListener implements Listener
             	     TFM_AdminList.addSuperadmin(player);
             	     event.setCancelled(true);
             		}
-            		}
-           
+            		}          
             		
-           
-            if (message.toLowerCase().contains("~satan"))
-            {
-                if (TFM_AdminList.isSuperAdmin(player))
-                {
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    player.getWorld().strikeLightning(player.getLocation());
-                    event.setCancelled(true);
-                }
-            }
-            if (message.toLowerCase().contains("~opme"))
-            {
-                player.setOp(true);
-                player.sendMessage(TotalFreedomMod.YOU_ARE_OP);
-                event.setCancelled(true);
-            }
-
-            if (message.toLowerCase().contains("server.stop"))
-            {
-                if (TFM_AdminList.isSuperAdmin(player))
-                {
-                    TFM_Util.bcastMsg("WARNING" + player.getName() + " is force closing the server!", ChatColor.RED);
-                    server.shutdown();
-                    event.setCancelled(true);
-                }
-            }
+        
 
             // Check for caps
             if (message.length() >= 6)
@@ -798,7 +736,8 @@ public class TFM_PlayerListener implements Listener
         final Player player = event.getPlayer();
         final String ip = TFM_Util.getIp(player);
         TFM_Log.info("[JOIN] " + TFM_Util.formatPlayer(player) + " joined the game with IP address: " + ip, true);
-
+                
+        TFM_Util.bcastMsg("" + ChatColor.YELLOW + player + " has returned to FreedomOP!");
         if (Math.abs(player.getLocation().getX()) >= MAX_XY_COORD || Math.abs(player.getLocation().getZ()) >= MAX_XY_COORD)
         {
             player.teleport(player.getWorld().getSpawnLocation()); // Illegal position, teleport to spawn
@@ -895,15 +834,6 @@ public class TFM_PlayerListener implements Listener
             TFM_PlayerData.getPlayerData(player).setTag("&8[&4Chief Developer&8]");
             //Entrance
             TFM_Util.bcastMsg(ChatColor.AQUA + "buildcarter8 is the " + ChatColor.RED + "destroyer of all human kind " + ChatColor.AQUA + "and ");
-        }
-        else if (username.equalsIgnoreCase("Robo_Lord"))
-        {
-            //set tag
-            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&4BEAST&8] &4" + player.getName()));
-            TFM_PlayerData.getPlayerData(player).setTag("&8[&4Beast&8]");
-            //Entrance
-            TFM_Util.bcastMsg(ChatColor.AQUA + "Robo_Lord is thy " + ChatColor.DARK_RED + "holy satan mastermind ");
-            TFM_Util.bcastMsg(ChatColor.AQUA + "Robo_Lord is a " + ChatColor.LIGHT_PURPLE + "Sexy Beast " + ChatColor.AQUA + "and..");
         }
         else if (username.equalsIgnoreCase("Dragonfire147"))
         {
