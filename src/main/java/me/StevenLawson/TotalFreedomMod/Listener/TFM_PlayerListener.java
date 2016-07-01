@@ -920,7 +920,7 @@ public class TFM_PlayerListener implements Listener
         {   //set tag
             player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&cCOS&8] &5" + player.getName()));
             TFM_PlayerData.getPlayerData(player).setTag("&8[&cChief of Security&8]");
-            
+            player.setCustomName("Cyro");
             //Entrance
             TFM_Util.bcastMsg(ChatColor.AQUA + "Cyro1999 is a " + ChatColor.GOLD + "meme lord " + ChatColor.AQUA + "and.. ");
         }
