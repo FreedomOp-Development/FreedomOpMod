@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.StevenLawson</groupId>
     <artifactId>TotalFreedomMod</artifactId>
-    <version>7.2.8</version>
+    <version>7.2.9</version>
     <packaging>jar</packaging>
     
     <!-- This maven compiler was based on TFM 5.0, made by the same people !-->
