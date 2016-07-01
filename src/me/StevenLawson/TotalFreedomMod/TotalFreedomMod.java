@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+
+import me.PieGuy7896.FreedomOpMod.Listeners.FOPM_PlayerListener;
 import me.StevenLawson.TotalFreedomMod.Bridge.TFM_BukkitTelnetListener;
 import me.StevenLawson.TotalFreedomMod.Bridge.TFM_WorldEditListener;
 import me.StevenLawson.TotalFreedomMod.Commands.TFM_CommandHandler;
@@ -129,6 +131,9 @@ public class TotalFreedomMod extends JavaPlugin
         pm.registerEvents(new TFM_ServerListener(), plugin);
         pm.registerEvents(new TFM_WorldEditListener(), plugin);
         pm.registerEvents(new TFM_BukkitTelnetListener(), plugin);
+        // fop listeners
+        pm.registerEvents(new FOPM_PlayerListener(), plugin);
+       
 
         try
         {

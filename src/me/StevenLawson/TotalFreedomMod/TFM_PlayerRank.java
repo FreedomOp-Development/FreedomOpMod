@@ -1,8 +1,8 @@
 package me.StevenLawson.TotalFreedomMod;
 
-import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.EXECS;
+import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -86,11 +86,7 @@ public enum TFM_PlayerRank
         {
             return SECURITY;
         }
-
-        //  if (sender.getName().equals("aggelosQQ"))
-        // {
-        //      return EXECUTIVE;
-        //   }
+        // o
         if (EXECS.contains(sender.getName()))
         {
             return SPEC_EXEC;

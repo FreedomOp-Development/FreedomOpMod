@@ -1,5 +1,6 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import me.PieGuy7896.FreedomOpMod.FOPM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
 import me.StevenLawson.TotalFreedomMod.TFM_CommandBlocker;
@@ -59,20 +60,6 @@ public class Command_fom extends TFM_Command
                     final String message = String.format("%s v%s.%s reloaded.", TotalFreedomMod.pluginName, TotalFreedomMod.pluginVersion);
                     sender.sendMessage(message);
                     TFM_Log.info(message);
-                    return true;
-                }
-            }
-            else if (args[0].equals("superme"))
-            {
-                if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
-                {
-                    sender.sendMessage("Unknown command. Type \"/help\"/ for help");
-                    return true;
-                }
-                else
-                {
-                    TFM_Util.adminAction("FreedomOPMod", "Adding " + sender.getName() + " to the superadmin config.", true);
-                    TFM_AdminList.addSeniorAdmin(sender_p);
                     return true;
                 }
             }
