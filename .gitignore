@@ -48,8 +48,7 @@ Temporary Items
 .apdisk
 build.properties
 
-build.xml
-
 manifest.mf
 
 /target/
+/bin/

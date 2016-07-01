@@ -276,7 +276,8 @@ public class TFM_CommandBlocker
             this.message = message;
         }
 
-        public CommandBlockerAction getAction()
+        @SuppressWarnings("unused")
+		public CommandBlockerAction getAction()
         {
             return this.action;
         }
@@ -286,7 +287,8 @@ public class TFM_CommandBlocker
             return this.command;
         }
 
-        public String getMessage()
+        @SuppressWarnings("unused")
+		public String getMessage()
         {
             return this.message;
         }
