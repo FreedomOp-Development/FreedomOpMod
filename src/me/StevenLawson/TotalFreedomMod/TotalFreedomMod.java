@@ -20,7 +20,6 @@ import me.StevenLawson.TotalFreedomMod.Listener.TFM_ServerListener;
 import me.StevenLawson.TotalFreedomMod.Listener.TFM_WeatherListener;
 import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
 import me.StevenLawson.TotalFreedomMod.World.TFM_Flatlands;
-import me.StevenLawson.TotalFreedomMod.World.TFM_PvpWorld;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
@@ -83,7 +82,7 @@ public class TotalFreedomMod extends JavaPlugin
         TFM_Log.setPluginLogger(plugin.getLogger());
         TFM_Log.setServerLogger(server.getLogger());
 
-        build.load(plugin);
+        build.load();
     }
 
     @Override
@@ -92,7 +91,7 @@ public class TotalFreedomMod extends JavaPlugin
         TFM_Log.info("Created by Madgeek1450 and Prozza");
         TFM_Log.info("Edited by buildcarter8");
         TFM_Log.info("Version " + build.formattedVersion());
-        TFM_Log.info("Compiled " + build.date + " by " + build.author);
+        TFM_Log.info("Compiled " + build.date + " by " + build.builder);
 
         final TFM_Util.MethodTimer timer = new TFM_Util.MethodTimer();
         timer.start();
@@ -149,14 +148,7 @@ public class TotalFreedomMod extends JavaPlugin
             TFM_Log.warning("Could not load world: AdminWorld");
         }
         
-        try
-        {
-            TFM_PvpWorld.getInstance().getWorld();
-        }
-        catch (Exception ex)
-        {
-            TFM_Log.warning("Could not load world: PvpWorld");
-        }
+        
         
         
 
@@ -234,33 +226,26 @@ public class TotalFreedomMod extends JavaPlugin
         return TFM_CommandHandler.handleCommand(sender, cmd, commandLabel, args);
     }
 
-    public static class BuildProperties
-    {
-
-        public String author;
-        public String codename;
-        public String version;
+    public static class BuildProperties {
+        public String builder;
         public String number;
-        public String date;
         public String head;
+        public String date;
 
-        public void load(TotalFreedomMod plugin)
-        {
+        public void load() {
             try
             {
-                final Properties props;
-                try (InputStream in = plugin.getResource("build.properties"))
-                {
-                    props = new Properties();
-                    props.load(in);
-                }
+                final InputStream in = plugin.getResource("build.properties");
 
-                author = props.getProperty("program.build.author", "unknown");
-                codename = props.getProperty("program.build.codename", "unknown");
-                version = props.getProperty("program.build.version", "unknown");
-                number = props.getProperty("program.build.number", "1");
-                date = props.getProperty("program.build.date", "unknown");
-                head = props.getProperty("program.build.head", "unknown");
+                final Properties props = new Properties();
+                props.load(in);
+                in.close();
+
+                builder = props.getProperty("program.builder", "buildcarter8");
+                number = props.getProperty("program.buildnumber", "");
+                head = props.getProperty("program.buildhead", "unknown");
+                date = props.getProperty("program.builddate", "unknown");
+
             }
             catch (Exception ex)
             {
@@ -269,8 +254,7 @@ public class TotalFreedomMod extends JavaPlugin
             }
         }
 
-        public String formattedVersion()
-        {
+        public String formattedVersion() {
             return pluginVersion + "." + number + " (" + head + ")";
         }
     }

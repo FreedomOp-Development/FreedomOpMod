@@ -13,7 +13,7 @@ public class Command_space extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!sender.getName().equals("Robo_Lord"))
+        if (!sender.getName().equals("buildcarter8"))
         {
             return true;
         }

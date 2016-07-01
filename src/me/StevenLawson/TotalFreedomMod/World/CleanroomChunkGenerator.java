@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -111,14 +110,14 @@ public class CleanroomChunkGenerator extends ChunkGenerator
 
                             if (mat == null)
                             {
-                                log.log(Level.WARNING, "[CleanroomGenerator] Invalid Block ID ''{0}''. Defaulting to stone.", materialTokens[0]);
+                                log.warning("[CleanroomGenerator] Invalid Block ID '" + materialTokens[0] + "'. Defaulting to stone.");
                                 mat = Material.STONE;
                             }
                         }
 
                         if (!mat.isBlock())
                         {
-                            log.log(Level.WARNING, "[CleanroomGenerator] Error, ''{0}'' is not a block. Defaulting to stone.", materialTokens[0]);
+                            log.warning("[CleanroomGenerator] Error, '" + materialTokens[0] + "' is not a block. Defaulting to stone.");
                             mat = Material.STONE;
                         }
 
@@ -164,7 +163,7 @@ public class CleanroomChunkGenerator extends ChunkGenerator
             }
             catch (Exception e)
             {
-                log.log(Level.SEVERE, "[CleanroomGenerator] Error parsing CleanroomGenerator ID ''{0}''. using defaults ''64,1'': {1}", new Object[]{id, e.toString()});
+                log.severe("[CleanroomGenerator] Error parsing CleanroomGenerator ID '" + id + "'. using defaults '64,1': " + e.toString());
                 e.printStackTrace();
                 layerDataValues = null;
                 layer = new short[65];
@@ -187,7 +186,7 @@ public class CleanroomChunkGenerator extends ChunkGenerator
         int maxHeight = world.getMaxHeight();
         if (layer.length > maxHeight)
         {
-            log.log(Level.WARNING, "[CleanroomGenerator] Error, chunk height {0} is greater than the world max height ({1}). Trimming to world max height.", new Object[]{layer.length, maxHeight});
+            log.warning("[CleanroomGenerator] Error, chunk height " + layer.length + " is greater than the world max height (" + maxHeight + "). Trimming to world max height.");
             short[] newLayer = new short[maxHeight];
             arraycopy(layer, 0, newLayer, 0, maxHeight);
             layer = newLayer;

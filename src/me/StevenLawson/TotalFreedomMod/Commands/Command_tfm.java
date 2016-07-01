@@ -64,7 +64,7 @@ public class Command_tfm extends TFM_Command
                 + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
                 + ChatColor.BLUE + "%s",
                 build.date,
-                build.author));
+                build.builder));
         sender.sendMessage(ChatColor.GREEN + "Visit " + ChatColor.AQUA + "http://github.com/TotalFreedom/TotalFreedomMod"
                 + ChatColor.GREEN + " for more information.");
 

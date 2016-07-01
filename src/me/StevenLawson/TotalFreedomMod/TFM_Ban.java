@@ -1,4 +1,3 @@
-// test
 package me.StevenLawson.TotalFreedomMod;
 
 import java.text.SimpleDateFormat;

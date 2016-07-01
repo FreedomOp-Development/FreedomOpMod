@@ -17,7 +17,7 @@ server:
 
   # All players who show up as owner
   owners:
-    - CrafterSmith12
+    - Paldiu
 
   # URL players should appeal for bans at
   ban_url: http://to.fop.us.to/BanAppeal
@@ -167,6 +167,7 @@ landmines_enabled: false
 mp44_enabled: false
 tossmob_enabled: false
 applications_open: false
+verify_number: 0034449
 
 # Moblimiter:
 

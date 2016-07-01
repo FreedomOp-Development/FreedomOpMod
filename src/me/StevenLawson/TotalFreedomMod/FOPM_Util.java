@@ -1,8 +1,6 @@
 package me.StevenLawson.TotalFreedomMod;
 
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
-import me.StevenLawson.TotalFreedomMod.World.TFM_AdminWorld;
-import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -27,16 +25,6 @@ public class FOPM_Util
         }
         else {
             return false;
-        }
-    }
-    
-    public static World getAdminWorld() {
-        try {
-            return TFM_AdminWorld.getInstance().getWorld();
-        }
-        catch (Exception ex) {
-            TFM_Log.warning(ex);
-            return null;
         }
     }
 }

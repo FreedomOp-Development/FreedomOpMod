@@ -34,7 +34,7 @@ public class Command_fom extends TFM_Command
                     + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
                     + ChatColor.BLUE + "%s",
                     build.date,
-                    build.author));
+                    build.builder));
             sender.sendMessage(ChatColor.GOLD + "Created by Madgeek1450 and Prozza (later worked on by Buildcarter8, Robo_Lord, SupItsDillon, and hypertechHD)");
             sender.sendMessage(ChatColor.GREEN + "Visit " + ChatColor.AQUA + "http://freedomop.boards.net/" + ChatColor.GREEN + " for more information.");
         }

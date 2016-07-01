@@ -4,6 +4,7 @@ import java.util.List;
 
 public enum TFM_ConfigEntry
 {
+	
     APPLICATIONS_ENABLED(Boolean.class, "applications_open"),
     //
     FORCE_IP_ENABLED(Boolean.class, "forceip.enabled"),
