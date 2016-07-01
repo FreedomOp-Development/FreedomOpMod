@@ -52,16 +52,4 @@ build.xml
 
 manifest.mf
 
-nbproject/build-impl.xml
-
-nbproject/genfiles.properties
-
-nbproject/project.properties
-
-nbproject/project.xml
-/dist/
-FOPM/nbproject/project.xml
-
-FOPM/nbproject/genfiles.properties
-
-FOPM/nbproject/project.properties
+/target/

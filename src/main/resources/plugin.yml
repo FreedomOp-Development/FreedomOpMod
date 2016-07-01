@@ -1,0 +1,8 @@
+name: FreedomOpMod
+main: me.StevenLawson.TotalFreedomMod.TotalFreedomMod
+version: ${fopm.build.version}
+description: Plugin for the FreedomOp server.
+softdepend: [BukkitTelnet, LibsDisguises, WorldEdit, Essentials]
+authors: [Madgeek1450, DarthSalamon, buildcarter8, tylerhyperHD]
+
+# plugin.yml is no longer used to define commands.
