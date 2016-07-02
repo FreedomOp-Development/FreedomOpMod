@@ -2,7 +2,6 @@ package me.StevenLawson.TotalFreedomMod.HTTPD;
 
 import java.util.Collection;
 
-import me.PieGuy7896.FreedomOpMod.FOPM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import org.bukkit.Bukkit;
@@ -40,7 +39,7 @@ public class Module_list extends TFM_HTTPD_Module
                     prefix = "[SA]";
                 }
 
-                if (FOPM_Util.DEVELOPERS.contains(player.getName()))
+                if (TFM_Util.DEVELOPERS.contains(player.getName()))
                 {
                     prefix = "[Dev]";
                 }

@@ -1,8 +1,5 @@
 package me.StevenLawson.TotalFreedomMod;
 
-import static me.PieGuy7896.FreedomOpMod.FOPM_Util.DEVELOPERS;
-import static me.PieGuy7896.FreedomOpMod.FOPM_Util.EXECS;
-import static me.PieGuy7896.FreedomOpMod.FOPM_Util.SYS;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -15,6 +12,7 @@ public enum TFM_PlayerRank
     SECURITY("the " + ChatColor.RED + "Chief of Security", ChatColor.RED + "[Chief of Security]"),
     SYS("a " + ChatColor.DARK_RED + "System Admin", ChatColor.DARK_RED + "[Sys-Admin]"),
     SPEC_EXEC("a " + ChatColor.YELLOW + "Special Executive", ChatColor.YELLOW + "[Spec-Exec]"),
+    TF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "TotalFreedom Developer", ChatColor.DARK_PURPLE + "[TF-Dev]"),
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
@@ -87,13 +85,15 @@ public enum TFM_PlayerRank
         {
             return SECURITY;
         }
-        // o
-        if (EXECS.contains(sender.getName()))
+        if (TFM_Util.EXECS.contains(sender.getName()))
         {
             return SPEC_EXEC;
         }
-
-        if (DEVELOPERS.contains(sender.getName()))
+        if (TFM_Util.TF_DEVELOPERS.contains(sender.getName()))
+        {
+            return TF_DEVELOPER;
+        }
+        if (TFM_Util.DEVELOPERS.contains(sender.getName()))
         {
             return DEVELOPER;
         }

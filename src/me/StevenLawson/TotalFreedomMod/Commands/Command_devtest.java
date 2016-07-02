@@ -1,6 +1,5 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.PieGuy7896.FreedomOpMod.FOPM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.ChatColor;
@@ -15,7 +14,7 @@ public class Command_devtest extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!FOPM_Util.DEVELOPERS.contains(sender.getName()))
+        if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
         {
             sender.sendMessage(ChatColor.RED + TotalFreedomMod.MSG_NO_PERMS);
             return true;

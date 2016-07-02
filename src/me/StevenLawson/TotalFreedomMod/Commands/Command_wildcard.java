@@ -2,7 +2,8 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.FOPM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_CommandBlocker;
-import static me.PieGuy7896.FreedomOpMod.FOPM_Util.DEVELOPERS;
+import me.StevenLawson.TotalFreedomMod.TFM_Util;
+
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -44,7 +45,7 @@ public class Command_wildcard extends TFM_Command
         }
         if (args[0].equals("survival") || args[0].equals("creative"))
         {
-            if(FOPM_Util.isOwner(sender) || DEVELOPERS.contains(sender.getName()))
+            if(FOPM_Util.isOwner(sender) || TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 // let it run through if the person is of a high rank
             }
