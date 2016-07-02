@@ -2,7 +2,7 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.FOPM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_CommandBlocker;
-import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
+import static me.PieGuy7896.FreedomOpMod.FOPM_Util.DEVELOPERS;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

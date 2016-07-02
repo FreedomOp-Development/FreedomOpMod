@@ -1,7 +1,8 @@
 package me.StevenLawson.TotalFreedomMod;
 
-import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
-import static me.StevenLawson.TotalFreedomMod.TFM_Util.EXECS;
+import static me.PieGuy7896.FreedomOpMod.FOPM_Util.DEVELOPERS;
+import static me.PieGuy7896.FreedomOpMod.FOPM_Util.EXECS;
+import static me.PieGuy7896.FreedomOpMod.FOPM_Util.SYS;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

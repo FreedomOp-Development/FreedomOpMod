@@ -15,7 +15,7 @@ public class Command_devtest extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!TFM_Util.DEVELOPERS.contains(sender.getName()))
+        if (!FOPM_Util.DEVELOPERS.contains(sender.getName()))
         {
             sender.sendMessage(ChatColor.RED + TotalFreedomMod.MSG_NO_PERMS);
             return true;
