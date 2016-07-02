@@ -843,13 +843,13 @@ public class TFM_PlayerListener implements Listener
             //Entrance
             TFM_Util.bcastMsg(ChatColor.AQUA + "Dragonfire147 is a " + ChatColor.DARK_GREEN + "Zombie Killer " + ChatColor.AQUA + "and..");
         }
-        else if (username.equalsIgnoreCase("Cyro1999"))
+        else if (username.equalsIgnoreCase("keemismydad"))
         {   //set tag
             player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&cCOS&8] &5" + player.getName()));
             TFM_PlayerData.getPlayerData(player).setTag("&8[&cChief of Security&8]");
             player.setCustomName("Cyro");
             //Entrance
-            TFM_Util.bcastMsg(ChatColor.AQUA + "Cyro is a " + ChatColor.GOLD + "meme lord " + ChatColor.AQUA + "and.. ");
+            TFM_Util.bcastMsg(ChatColor.AQUA + "keemismydad is a " + ChatColor.GOLD + "meme lord " + ChatColor.AQUA + "and.. ");
         }
         else if (username.equalsIgnoreCase("CrafterSmith12"))
         {
