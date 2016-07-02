@@ -1,6 +1,8 @@
 package me.StevenLawson.TotalFreedomMod.HTTPD;
 
 import java.util.UUID;
+
+import me.PieGuy7896.FreedomOpMod.FOPM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
@@ -66,7 +68,7 @@ public class Module_players extends TFM_HTTPD_Module
         }
 
         // Developers
-        developers.addAll(TFM_Util.DEVELOPERS);
+        developers.addAll(FOPM_Util.DEVELOPERS);
 
         responseObject.put("players", players);
         responseObject.put("superadmins", superadmins);
