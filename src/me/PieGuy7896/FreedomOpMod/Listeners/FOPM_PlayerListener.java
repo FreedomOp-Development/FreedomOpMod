@@ -43,6 +43,12 @@ public class FOPM_PlayerListener implements Listener
             TFM_Util.bcastMsg(TotalFreedomMod.FREEDOMOP_MOD + "WARNING: " + player.getName() + " is completely and utterly FAKE! - This server is in Offline Mode so anybody can join as anyone!", ChatColor.RED);
         }
         
+        else if (FOPM_Util.TF_DEVELOPERS.contains(player.getName()))
+        {
+            player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5TF-Dev&8] &5" + player.getName()));
+            TFM_PlayerData.getPlayerData(player).setTag("&8[&5TF-Developer&8]");
+        }
+        
         else if (FOPM_Util.DEVELOPERS.contains(player.getName()))
         {
             player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', "&8[&5Dev&8] &5" + player.getName()));
