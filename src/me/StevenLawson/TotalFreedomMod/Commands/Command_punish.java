@@ -13,9 +13,11 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.google.common.base.Joiner;
+
 import net.md_5.bungee.api.ChatColor;
 
-@CommandParameters(description="A simple punish GUI", usage="/<command> <player> [reason]")
+@CommandParameters(description="A simple punish GUI", usage="/<command> <player>")
 public class Command_punish extends TFM_Command implements Listener
 {
 	
@@ -31,7 +33,7 @@ public class Command_punish extends TFM_Command implements Listener
 			if(Bukkit.getOnlinePlayers().contains(args[0]))
 			{
 			
-				offender = args[0];
+			offender = args[0];
 				
 			Inventory inv = Bukkit.getServer().createInventory(null, 54, "Punish GUI");
 			
