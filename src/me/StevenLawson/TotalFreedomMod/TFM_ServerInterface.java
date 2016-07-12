@@ -16,6 +16,7 @@ import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent.Result;
 
+@SuppressWarnings("unused")
 public class TFM_ServerInterface
 {
     public static final String COMPILE_NMS_VERSION = "v1_10_R1";
@@ -64,7 +65,7 @@ public class TFM_ServerInterface
     {
         return TFM_DepreciationAggregator.getServer().getVersion();
     }
-    
+
     public static void handlePlayerPreLogin(AsyncPlayerPreLoginEvent event)
     {
         final String ip = event.getAddress().getHostAddress().trim();
@@ -116,23 +117,26 @@ public class TFM_ServerInterface
         // Check force-IP match
         if (TFM_ConfigEntry.FORCE_IP_ENABLED.getBoolean())
         {
-            final String hostname = event.getHostname().replace("\u0000FML\u0000", ""); // Forge fix - https://github.com/TotalFreedom/TotalFreedomMod/issues/493
+            final String hostname = event.getHostname().replace("\u0000FML\u0000", ""); // Forge
+                                                                                        // fix
+                                                                                        // -
+                                                                                        // https://github.com/TotalFreedom/TotalFreedomMod/issues/493
             final String connectAddress = TFM_ConfigEntry.SERVER_ADDRESS.getString();
             final int connectPort = TotalFreedomMod.server.getPort();
 
             if (!hostname.equalsIgnoreCase(connectAddress + ":" + connectPort) && !hostname.equalsIgnoreCase(connectAddress + ".:" + connectPort))
             {
                 final int forceIpPort = TFM_ConfigEntry.FORCE_IP_PORT.getInteger();
-                event.disallow(PlayerLoginEvent.Result.KICK_OTHER,
-                        TFM_ConfigEntry.FORCE_IP_KICKMSG.getString()
-                        .replace("%address%", TFM_ConfigEntry.SERVER_ADDRESS.getString() + (forceIpPort == TFM_PlayerListener.DEFAULT_PORT ? "" : ":" + forceIpPort)));
+                event.disallow(PlayerLoginEvent.Result.KICK_OTHER, TFM_ConfigEntry.FORCE_IP_KICKMSG.getString().replace("%address%",
+                        TFM_ConfigEntry.SERVER_ADDRESS.getString() + (forceIpPort == TFM_PlayerListener.DEFAULT_PORT ? "" : ":" + forceIpPort)));
                 return;
             }
 
         }
 
         // Check if player is admin
-        // Not safe to use TFM_Util.isSuperAdmin(player) because player.getAddress() will return a null until after player login.
+        // Not safe to use TFM_Util.isSuperAdmin(player) because
+        // player.getAddress() will return a null until after player login.
         final boolean isAdmin = TFM_AdminList.isSuperAdminSafe(uuid, ip);
 
         // Validation below this point
@@ -172,7 +176,7 @@ public class TFM_ServerInterface
         // Server full check
         if (server.getOnlinePlayers().size() >= server.getMaxPlayers())
         {
-            event.disallow(Result.KICK_FULL, "Sorry, but this server is full.");
+            event.disallow(Result.KICK_OTHER, "Sorry, but this server is full.");
             return;
         }
 
@@ -221,10 +225,8 @@ public class TFM_ServerInterface
         {
             if (TFM_Util.fuzzyIpMatch(testIp, ip, 4))
             {
-                event.disallow(Result.KICK_OTHER,
-                        ChatColor.RED + "Your IP address is permanently banned from this server.\n"
-                        + "Release procedures are available at\n"
-                        + ChatColor.GOLD + TFM_ConfigEntry.SERVER_PERMBAN_URL.getString());
+                event.disallow(Result.KICK_OTHER, ChatColor.RED + "Your IP address is permanently banned from this server.\n" + "Release procedures are available at\n" + ChatColor.GOLD
+                        + TFM_ConfigEntry.SERVER_PERMBAN_URL.getString());
                 return;
             }
         }
@@ -234,10 +236,8 @@ public class TFM_ServerInterface
         {
             if (testPlayer.equalsIgnoreCase(username))
             {
-                event.disallow(Result.KICK_OTHER,
-                        ChatColor.RED + "Your username is permanently banned from this server.\n"
-                        + "Release procedures are available at\n"
-                        + ChatColor.GOLD + TFM_ConfigEntry.SERVER_PERMBAN_URL.getString());
+                event.disallow(Result.KICK_OTHER, ChatColor.RED + "Your username is permanently banned from this server.\n" + "Release procedures are available at\n" + ChatColor.GOLD
+                        + TFM_ConfigEntry.SERVER_PERMBAN_URL.getString());
                 return;
             }
         }

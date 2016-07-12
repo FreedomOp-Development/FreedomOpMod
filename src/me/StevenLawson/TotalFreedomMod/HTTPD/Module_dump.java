@@ -19,7 +19,8 @@ public class Module_dump extends TFM_HTTPD_Module
     {
         super(session);
 
-        //Body needs to be computed before getResponse, so we know if a text response or a file echo is needed.
+        // Body needs to be computed before getResponse, so we know if a text
+        // response or a file echo is needed.
         this.body = body();
     }
 
@@ -55,16 +56,8 @@ public class Module_dump extends TFM_HTTPD_Module
 
         Map<String, String> files = getFiles();
 
-        responseBody
-                .append(paragraph("URI: " + uri))
-                .append(paragraph("args (Length: " + args.length + "): " + StringUtils.join(args, ",")))
-                .append(paragraph("Method: " + method.toString()))
-                .append(paragraph("Remote Address: " + remoteAddress))
-                .append(paragraph("Headers:"))
-                .append(list(headers))
-                .append(paragraph("Params:"))
-                .append(list(params))
-                .append(paragraph("Files:"))
+        responseBody.append(paragraph("URI: " + uri)).append(paragraph("args (Length: " + args.length + "): " + StringUtils.join(args, ","))).append(paragraph("Method: " + method.toString()))
+                .append(paragraph("Remote Address: " + remoteAddress)).append(paragraph("Headers:")).append(list(headers)).append(paragraph("Params:")).append(list(params)).append(paragraph("Files:"))
                 .append(list(files));
 
         Iterator<Map.Entry<String, String>> it = files.entrySet().iterator();

@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.ONLY_CONSOLE)
-@CommandParameters(description = "Run's the system cleanup", usage = "/<command>")
+@CommandParameters(description = "Runs the system cleanup", usage = "/<command>")
 public class Command_cleanup extends TFM_Command
 {
     @Override
@@ -22,7 +22,7 @@ public class Command_cleanup extends TFM_Command
             server.dispatchCommand(sender, "creative -a");
             server.dispatchCommand(sender, "purgeall");
             server.dispatchCommand(sender, "tfbanlist purge");
-            TFM_Util.bcastMsg(ChatColor.GREEN + "Midnightly Clean Up Completed. Reloading Server.");
+            TFM_Util.bcastMsg(ChatColor.GREEN + "Midnight Clean Up Completed. Reloading Server.");
             server.dispatchCommand(sender, "fopm reload");
             server.dispatchCommand(sender, "reload");
         }

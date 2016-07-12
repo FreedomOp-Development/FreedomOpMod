@@ -18,8 +18,7 @@ public class Command_list extends TFM_Command
 {
     private static enum ListFilter
     {
-        ALL,
-        ADMINS;
+        ALL, ADMINS;
     }
 
     @Override

@@ -32,8 +32,7 @@ public class TFM_Heartbeat extends BukkitRunnable
     {
         lastRan = System.currentTimeMillis();
 
-        final boolean doAwayKickCheck = TFM_ConfigEntry.AUTOKICK_ENABLED.getBoolean()
-                && TFM_EssentialsBridge.isEssentialsEnabled()
+        final boolean doAwayKickCheck = TFM_ConfigEntry.AUTOKICK_ENABLED.getBoolean() && TFM_EssentialsBridge.isEssentialsEnabled()
                 && ((Bukkit.getOnlinePlayers().size() / Bukkit.getMaxPlayers()) > TFM_ConfigEntry.AUTOKICK_THRESHOLD.getDouble());
 
         for (Player player : Bukkit.getOnlinePlayers())

@@ -23,10 +23,7 @@ public class TFM_WorldEditListener implements Listener
             return;
         }
 
-        if (TFM_ProtectedArea.isInProtectedArea(
-                event.getMinVector(),
-                event.getMaxVector(),
-                event.getWorld().getName()))
+        if (TFM_ProtectedArea.isInProtectedArea(event.getMinVector(), event.getMaxVector(), event.getWorld().getName()))
         {
 
             player.sendMessage(ChatColor.RED + "The region that you selected contained a protected area. Selection cleared.");

@@ -30,9 +30,8 @@ public class Command_plugincontrol extends TFM_Command
                 for (Plugin serverPlugin : pm.getPlugins())
                 {
                     final String version = serverPlugin.getDescription().getVersion();
-                    sender.sendMessage(ChatColor.GRAY + "- " + (serverPlugin.isEnabled() ? ChatColor.GREEN : ChatColor.RED) + serverPlugin.getName()
-                            + ChatColor.GOLD + (version != null && !version.isEmpty() ? " v" + version : "") + " by "
-                            + StringUtils.join(serverPlugin.getDescription().getAuthors(), ", "));
+                    sender.sendMessage(ChatColor.GRAY + "- " + (serverPlugin.isEnabled() ? ChatColor.GREEN : ChatColor.RED) + serverPlugin.getName() + ChatColor.GOLD
+                            + (version != null && !version.isEmpty() ? " v" + version : "") + " by " + StringUtils.join(serverPlugin.getDescription().getAuthors(), ", "));
                 }
 
                 return true;

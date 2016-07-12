@@ -274,6 +274,7 @@ public class TFM_ProtectedArea
         }
     }
 
+    @SuppressWarnings("serial")
     public static class SerializableProtectedRegion implements Serializable
     {
         private final double x, y, z;

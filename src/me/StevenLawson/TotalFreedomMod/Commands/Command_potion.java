@@ -15,9 +15,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 @CommandPermissions(level = AdminLevel.OP, source = SourceType.BOTH)
-@CommandParameters(
-        description = "Manipulate potion effects. Duration is measured in server ticks (~20 ticks per second).",
-        usage = "/<command> <list | clear [target name] | add <type> <duration> <amplifier> [target name]>")
+@CommandParameters(description = "Manipulate potion effects. Duration is measured in server ticks (~20 ticks per second).", usage = "/<command> <list | clear [target name] | add <type> <duration> <amplifier> [target name]>")
 public class Command_potion extends TFM_Command
 {
     @Override
@@ -157,10 +155,7 @@ public class Command_potion extends TFM_Command
 
                 PotionEffect new_effect = potion_effect_type.createEffect(duration, amplifier);
                 target.addPotionEffect(new_effect, true);
-                sender.sendMessage(ChatColor.AQUA
-                        + "Added potion effect: " + new_effect.getType().getName()
-                        + ", Duration: " + new_effect.getDuration()
-                        + ", Amplifier: " + new_effect.getAmplifier()
+                sender.sendMessage(ChatColor.AQUA + "Added potion effect: " + new_effect.getType().getName() + ", Duration: " + new_effect.getDuration() + ", Amplifier: " + new_effect.getAmplifier()
                         + (!target.equals(sender_p) ? " to player " + target.getName() + "." : " to yourself."));
 
                 return true;

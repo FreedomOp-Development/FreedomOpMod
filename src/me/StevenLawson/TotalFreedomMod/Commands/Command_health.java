@@ -26,7 +26,8 @@ public class Command_health extends TFM_Command
         long usedMem = runtime.totalMemory() - runtime.freeMemory();
 
         sender.sendMessage(ChatColor.GRAY + "Reserved Memory: " + (double) runtime.totalMemory() / (double) BYTES_PER_MB + "mb");
-        sender.sendMessage(ChatColor.GRAY + "Used Memory: " + new DecimalFormat("#").format((double) usedMem / (double) BYTES_PER_MB) + "mb (" + new DecimalFormat("#").format(((double) usedMem / (double) runtime.totalMemory()) * 100.0) + "%)");
+        sender.sendMessage(ChatColor.GRAY + "Used Memory: " + new DecimalFormat("#").format((double) usedMem / (double) BYTES_PER_MB) + "mb ("
+                + new DecimalFormat("#").format(((double) usedMem / (double) runtime.totalMemory()) * 100.0) + "%)");
         sender.sendMessage(ChatColor.GRAY + "Max Memory: " + (double) runtime.maxMemory() / (double) BYTES_PER_MB + "mb");
         sender.sendMessage(ChatColor.GRAY + "Calculating ticks per second, please wait...");
 

@@ -53,7 +53,7 @@ public class Command_adminworld extends TFM_Command
         try
         {
             switch (commandMode)
-            {
+                {
                 case TELEPORT:
                 {
                     if (!(sender instanceof Player) || sender_p == null)
@@ -201,7 +201,7 @@ public class Command_adminworld extends TFM_Command
                 {
                     return false;
                 }
-            }
+                }
         }
         catch (PermissionDeniedException ex)
         {
@@ -219,6 +219,7 @@ public class Command_adminworld extends TFM_Command
         }
     }
 
+    @SuppressWarnings("serial")
     private class PermissionDeniedException extends Exception
     {
         public PermissionDeniedException(String string)

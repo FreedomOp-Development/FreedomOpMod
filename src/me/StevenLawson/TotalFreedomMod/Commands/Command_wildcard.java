@@ -22,7 +22,7 @@ public class Command_wildcard extends TFM_Command
         {
             return false;
         }
-        
+
         if (args[0].equals("wildcard"))
         {
             sender.sendMessage(ChatColor.RED + "What the hell are you trying to do, you stupid idiot...");
@@ -45,11 +45,12 @@ public class Command_wildcard extends TFM_Command
         }
         if (args[0].equals("survival") || args[0].equals("creative"))
         {
-            if(FOPM_Util.isOwner(sender) || TFM_Util.DEVELOPERS.contains(sender.getName()))
+            if (FOPM_Util.isOwner(sender) || TFM_Util.DEVELOPERS.contains(sender.getName()))
             {
                 // let it run through if the person is of a high rank
             }
-            else {
+            else
+            {
                 sender.sendMessage(ChatColor.RED + "You do not have permission to set everyone's gamemode.");
                 return true;
             }

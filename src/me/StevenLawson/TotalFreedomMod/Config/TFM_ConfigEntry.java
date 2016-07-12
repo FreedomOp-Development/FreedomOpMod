@@ -4,7 +4,8 @@ import java.util.List;
 
 public enum TFM_ConfigEntry
 {
-	
+    // @formatter:off
+    
     APPLICATIONS_ENABLED(Boolean.class, "applications_open"),
     //
     FORCE_IP_ENABLED(Boolean.class, "forceip.enabled"),
@@ -70,7 +71,6 @@ public enum TFM_ConfigEntry
     //
     EXPLOSIVE_RADIUS(Double.class, "explosive_radius"),
     FREECAM_TRIGGER_COUNT(Integer.class, "freecam_trigger_count"),
-    SERVICE_CHECKER_URL(String.class, "service_checker_url"),
     BLOCKED_COMMANDS(List.class, "blocked_commands"),
     HOST_SENDER_NAMES(List.class, "host_sender_names"),
     UNBANNABLE_USERNAMES(List.class, "unbannable_usernames"),
@@ -78,7 +78,9 @@ public enum TFM_ConfigEntry
     ADMIN_ONLY_MODE(Boolean.class, "admin_only_mode"),
     AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe"),
     CONSOLE_IS_SENIOR(Boolean.class, "console_is_senior");
-    //
+    
+    // @formatter:on
+
     private final Class<?> type;
     private final String configName;
 

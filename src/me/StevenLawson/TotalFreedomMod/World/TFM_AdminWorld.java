@@ -28,8 +28,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public final class TFM_AdminWorld extends TFM_CustomWorld
 {
-    private static final long CACHE_CLEAR_FREQUENCY = 30L * 1000L; //30 seconds, milliseconds
-    private static final long TP_COOLDOWN_TIME = 500L; //0.5 seconds, milliseconds
+    private static final long CACHE_CLEAR_FREQUENCY = 30L * 1000L; // 30
+                                                                   // seconds,
+                                                                   // milliseconds
+    private static final long TP_COOLDOWN_TIME = 500L; // 0.5 seconds,
+                                                       // milliseconds
     private static final String GENERATION_PARAMETERS = TFM_ConfigEntry.FLATLANDS_GENERATE_PARAMS.getString();
     private static final String WORLD_NAME = "adminworld";
     //
@@ -37,7 +40,8 @@ public final class TFM_AdminWorld extends TFM_CustomWorld
     private final Map<CommandSender, Boolean> accessCache = new HashMap<CommandSender, Boolean>();
     //
     private Long cacheLastCleared = null;
-    private Map<Player, Player> guestList = new HashMap<Player, Player>(); // Guest, Supervisor
+    private Map<Player, Player> guestList = new HashMap<Player, Player>(); // Guest,
+                                                                           // Supervisor
     private WeatherMode weatherMode = WeatherMode.OFF;
     private TimeOfDay timeOfDay = TimeOfDay.INHERIT;
 
@@ -226,9 +230,7 @@ public final class TFM_AdminWorld extends TFM_CustomWorld
 
     public static enum WeatherMode
     {
-        OFF("off"),
-        RAIN("rain"),
-        STORM("storm,thunderstorm");
+        OFF("off"), RAIN("rain"), STORM("storm,thunderstorm");
         //
         private final List<String> aliases;
 
@@ -262,11 +264,7 @@ public final class TFM_AdminWorld extends TFM_CustomWorld
 
     public static enum TimeOfDay
     {
-        INHERIT(),
-        SUNRISE("sunrise,morning", 0),
-        NOON("noon,midday,day", 6000),
-        SUNSET("sunset,evening", 12000),
-        MIDNIGHT("midnight,night", 18000);
+        INHERIT(), SUNRISE("sunrise,morning", 0), NOON("noon,midday,day", 6000), SUNSET("sunset,evening", 12000), MIDNIGHT("midnight,night", 18000);
         //
         private final int timeTicks;
         private final List<String> aliases;

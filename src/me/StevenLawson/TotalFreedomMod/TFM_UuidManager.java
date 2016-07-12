@@ -41,10 +41,7 @@ public class TFM_UuidManager
 
     static
     {
-        SQL = new TFM_SqliteDatabase(
-                "uuids.db",
-                TABLE_NAME,
-                "username VARCHAR(" + TotalFreedomMod.MAX_USERNAME_LENGTH + ") NOT NULL PRIMARY KEY, uuid CHAR(36) NOT NULL");
+        SQL = new TFM_SqliteDatabase("uuids.db", TABLE_NAME, "username VARCHAR(" + TotalFreedomMod.MAX_USERNAME_LENGTH + ") NOT NULL PRIMARY KEY, uuid CHAR(36) NOT NULL");
 
         FIND = SQL.addPreparedStatement("SELECT * FROM " + TABLE_NAME + " WHERE lower(username) = ?;");
         UPDATE = SQL.addPreparedStatement("REPLACE INTO " + TABLE_NAME + " (username, uuid) VALUES (?, ?);");
@@ -218,12 +215,7 @@ public class TFM_UuidManager
                 builder.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
             }
 
-            return UUID.fromString(
-                    "deadbeef"
-                    + "-" + builder.substring(8, 12)
-                    + "-" + builder.substring(12, 16)
-                    + "-" + builder.substring(16, 20)
-                    + "-" + builder.substring(20, 32));
+            return UUID.fromString("deadbeef" + "-" + builder.substring(8, 12) + "-" + builder.substring(12, 16) + "-" + builder.substring(16, 20) + "-" + builder.substring(20, 32));
         }
         catch (NoSuchAlgorithmException ex)
         {
@@ -278,12 +270,7 @@ public class TFM_UuidManager
                         final JSONObject jsonProfile = (JSONObject) profile;
                         final String id = (String) jsonProfile.get("id");
                         final String name = (String) jsonProfile.get("name");
-                        final UUID uuid = UUID.fromString(
-                                id.substring(0, 8)
-                                + "-" + id.substring(8, 12)
-                                + "-" + id.substring(12, 16)
-                                + "-" + id.substring(16, 20)
-                                + "-" + id.substring(20, 32));
+                        final UUID uuid = UUID.fromString(id.substring(0, 8) + "-" + id.substring(8, 12) + "-" + id.substring(12, 16) + "-" + id.substring(16, 20) + "-" + id.substring(20, 32));
                         uuidMap.put(name, uuid);
                     }
 
@@ -294,9 +281,8 @@ public class TFM_UuidManager
                 }
                 catch (Exception ex)
                 {
-                    TFM_Log.severe("Could not resolve UUID(s) of "
-                            + StringUtils.join(names.subList(i * 100, Math.min((i + 1) * 100, names.size())), ", "));
-                    //TFM_Log.severe(ex);
+                    TFM_Log.severe("Could not resolve UUID(s) of " + StringUtils.join(names.subList(i * 100, Math.min((i + 1) * 100, names.size())), ", "));
+                    // TFM_Log.severe(ex);
                 }
             }
             return uuidMap;

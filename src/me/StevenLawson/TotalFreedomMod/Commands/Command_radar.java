@@ -37,7 +37,7 @@ public class Command_radar extends TFM_Command
 
         if (radar_data.isEmpty())
         {
-            sender.sendMessage(ChatColor.YELLOW + "You are the only player in this world. (" + ChatColor.GREEN + "Forever alone..." + ChatColor.YELLOW + ")"); //lol
+            sender.sendMessage(ChatColor.YELLOW + "You are the only player in this world. (" + ChatColor.GREEN + "Forever alone..." + ChatColor.YELLOW + ")"); // lol
             return true;
         }
 
@@ -59,9 +59,7 @@ public class Command_radar extends TFM_Command
 
         for (TFM_RadarData i : radar_data)
         {
-            sender.sendMessage(ChatColor.YELLOW + String.format("%s - %d",
-                    i.player.getName(),
-                    Math.round(i.distance)));
+            sender.sendMessage(ChatColor.YELLOW + String.format("%s - %d", i.player.getName(), Math.round(i.distance)));
 
             if (--countmax <= 0)
             {
@@ -72,6 +70,7 @@ public class Command_radar extends TFM_Command
         return true;
     }
 
+    @SuppressWarnings("unused")
     private class TFM_RadarData implements Comparator<TFM_RadarData>
     {
         public Player player;

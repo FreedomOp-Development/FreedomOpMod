@@ -7,21 +7,16 @@ import org.bukkit.entity.Player;
 
 public enum TFM_PlayerRank
 {
-    WEB("the " + ChatColor.YELLOW + "Chief Web Developer!", ChatColor.YELLOW + "[Chief Web Developer]"),
-    CDEV("the " + ChatColor.DARK_PURPLE + "Chief Developer!", ChatColor.DARK_PURPLE + "[Chief Developer]"),
-    SECURITY("the " + ChatColor.RED + "Chief of Security", ChatColor.RED + "[Chief of Security]"),
-    SYS("a " + ChatColor.DARK_RED + "System Admin", ChatColor.DARK_RED + "[Sys-Admin]"),
-    SPEC_EXEC("a " + ChatColor.YELLOW + "Special Executive", ChatColor.YELLOW + "[Spec-Exec]"),
-    TF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "TotalFreedom Developer", ChatColor.DARK_PURPLE + "[TF-Dev]"),
-    DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
-    IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
-    NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
-    OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
-    SUPER("a " + ChatColor.GOLD + "Super Admin", ChatColor.GOLD + "[SA]"),
-    TELNET("a " + ChatColor.DARK_GREEN + "Super Telnet Admin", ChatColor.DARK_GREEN + "[STA]"),
-    SENIOR("a " + ChatColor.LIGHT_PURPLE + "Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
-    OWNER("the " + ChatColor.BLUE + "Owner", ChatColor.BLUE + "[Owner]"),
-    CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
+    WEB("the " + ChatColor.YELLOW + "Chief Web Developer!", ChatColor.YELLOW + "[Chief Web Developer]"), CDEV("the " + ChatColor.DARK_PURPLE + "Chief Developer!",
+            ChatColor.DARK_PURPLE + "[Chief Developer]"), SECURITY("the " + ChatColor.RED + "Chief of Security", ChatColor.RED + "[Chief of Security]"), SYS("a " + ChatColor.DARK_RED + "System Admin",
+                    ChatColor.DARK_RED + "[Sys-Admin]"), SPEC_EXEC("a " + ChatColor.YELLOW + "Special Executive", ChatColor.YELLOW + "[Spec-Exec]"), TF_DEVELOPER(
+                            "a " + ChatColor.DARK_PURPLE + "TotalFreedom Developer",
+                            ChatColor.DARK_PURPLE + "[TF-Dev]"), DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"), IMPOSTOR(
+                                    "an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"), NON_OP("a " + ChatColor.GREEN + "Non-OP",
+                                            ChatColor.GREEN.toString()), OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"), SUPER("a " + ChatColor.GOLD + "Super Admin",
+                                                    ChatColor.GOLD + "[SA]"), TELNET("a " + ChatColor.DARK_GREEN + "Super Telnet Admin", ChatColor.DARK_GREEN + "[STA]"), SENIOR(
+                                                            "a " + ChatColor.LIGHT_PURPLE + "Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"), OWNER("the " + ChatColor.BLUE + "Owner",
+                                                                    ChatColor.BLUE + "[Owner]"), CONSOLE("The " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
     private String loginMessage;
     private String prefix;
 

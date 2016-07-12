@@ -6,7 +6,6 @@ import me.StevenLawson.TotalFreedomMod.TFM_CommandBlocker;
 import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import me.StevenLawson.TotalFreedomMod.TFM_PermbanList;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerList;
-import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -24,18 +23,10 @@ public class Command_fom extends TFM_Command
         {
             TotalFreedomMod.BuildProperties build = TotalFreedomMod.build;
             sender.sendMessage(ChatColor.GOLD + "FreedomOpMod for 'FreedomOp', an associated all-op server.");
-            sender.sendMessage(ChatColor.GOLD + String.format("Version "
-                    + ChatColor.BLUE + "%s.%s " + ChatColor.GOLD + "("
-                    + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
-                    TotalFreedomMod.pluginVersion,
-                    build.number,
-                    build.head));
-            sender.sendMessage(ChatColor.GOLD + String.format("Compiled "
-                    + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
-                    + ChatColor.BLUE + "%s",
-                    build.date,
-                    build.builder));
-            sender.sendMessage(ChatColor.GOLD + "Created by Madgeek1450 and Prozza (later worked on by Buildcarter8, Robo_Lord, SupItsDillon, and hypertechHD)");
+            sender.sendMessage(ChatColor.GOLD + String.format("Version " + ChatColor.BLUE + "%s.%s " + ChatColor.GOLD + "(" + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
+                    TotalFreedomMod.pluginVersion, build.number, build.head));
+            sender.sendMessage(ChatColor.GOLD + String.format("Compiled " + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by " + ChatColor.BLUE + "%s", build.date, build.builder));
+            sender.sendMessage(ChatColor.GOLD + "Created by Madgeek1450 and Prozza (later worked on by Buildcarter8, Robo_Lord, SupItsDillon, and tylerhyperHD)");
             sender.sendMessage(ChatColor.GREEN + "Visit " + ChatColor.AQUA + "http://freedomop.boards.net/" + ChatColor.GREEN + " for more information.");
         }
         else if (args.length == 1)

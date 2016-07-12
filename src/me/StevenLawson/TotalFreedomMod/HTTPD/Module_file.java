@@ -133,8 +133,7 @@ public class Module_file extends TFM_HTTPD_Module
             if (!uri.endsWith("/"))
             {
                 uri += "/";
-                res = new Response(Response.Status.REDIRECT, NanoHTTPD.MIME_HTML, "<html><body>Redirected: <a href=\"" + uri + "\">" + uri
-                        + "</a></body></html>");
+                res = new Response(Response.Status.REDIRECT, NanoHTTPD.MIME_HTML, "<html><body>Redirected: <a href=\"" + uri + "\">" + uri + "</a></body></html>");
                 res.addHeader("Location", uri);
             }
 
@@ -226,7 +225,8 @@ public class Module_file extends TFM_HTTPD_Module
                     }
                 }
 
-                // Change return code and add Content-Range header when skipping is requested
+                // Change return code and add Content-Range header when skipping
+                // is requested
                 if (range != null && startFrom >= 0)
                 {
                     if (startFrom >= fileLen)
@@ -277,18 +277,16 @@ public class Module_file extends TFM_HTTPD_Module
             res = new Response(Response.Status.FORBIDDEN, NanoHTTPD.MIME_PLAINTEXT, "FORBIDDEN: Reading file failed.");
         }
 
-        res.addHeader("Accept-Ranges", "bytes"); // Announce that the file server accepts partial content requestes
+        res.addHeader("Accept-Ranges", "bytes"); // Announce that the file
+                                                 // server accepts partial
+                                                 // content requestes
         return res;
     }
 
     private String listDirectory(String uri, File f)
     {
         String heading = "Directory " + uri;
-        String msg = "<html><head><title>" + heading + "</title><style><!--\n"
-                + "span.dirname { font-weight: bold; }\n"
-                + "span.filesize { font-size: 75%; }\n"
-                + "// -->\n"
-                + "</style>"
+        String msg = "<html><head><title>" + heading + "</title><style><!--\n" + "span.dirname { font-weight: bold; }\n" + "span.filesize { font-size: 75%; }\n" + "// -->\n" + "</style>"
                 + "</head><body><h1>" + heading + "</h1>";
 
         String up = null;

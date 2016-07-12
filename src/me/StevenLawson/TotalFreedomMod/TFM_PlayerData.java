@@ -70,6 +70,7 @@ public class TFM_PlayerData
 
         return data;
     }
+
     //
     private final Player player;
     private final String ip;
@@ -168,14 +169,14 @@ public class TFM_PlayerData
     public Material getCageMaterial(CageLayer layer)
     {
         switch (layer)
-        {
+            {
             case OUTER:
                 return this.cageOuterMaterial;
             case INNER:
                 return this.cageInnerMatterial;
             default:
                 return this.cageOuterMaterial;
-        }
+            }
     }
 
     public Location getCagePos()
@@ -463,7 +464,7 @@ public class TFM_PlayerData
     {
         return this.inAdminchat;
     }
-    
+
     public void setSeniorAdminChat(boolean inSeniorAdminchat)
     {
         this.inSeniorAdminchat = inSeniorAdminchat;
@@ -484,15 +485,19 @@ public class TFM_PlayerData
         this.allCommandsBlocked = commandsBlocked;
     }
 
-    // If someone logs in to telnet or minecraft, and they are an admin, make sure that they are using a username that is associated with their IP.
-    // After the check for this is done in TFM_PlayerListener, never change it elsewhere.
+    // If someone logs in to telnet or minecraft, and they are an admin, make
+    // sure that they are using a username that is associated with their IP.
+    // After the check for this is done in TFM_PlayerListener, never change it
+    // elsewhere.
     public boolean isSuperadminIdVerified()
     {
         return this.verifiedSuperadminId;
     }
 
-    // If someone logs in to telnet or minecraft, and they are an admin, make sure that they are using a username that is associated with their IP.
-    // After the check for this is done in TFM_PlayerListener, never change it elsewhere.
+    // If someone logs in to telnet or minecraft, and they are an admin, make
+    // sure that they are using a username that is associated with their IP.
+    // After the check for this is done in TFM_PlayerListener, never change it
+    // elsewhere.
     public void setSuperadminIdVerified(boolean verifiedSuperadminId)
     {
         this.verifiedSuperadminId = verifiedSuperadminId;

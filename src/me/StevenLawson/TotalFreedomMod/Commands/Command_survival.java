@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Quickly change your own gamemode to survival, or define someone's username to change theirs.", usage = "/<command> <[partialname] | -a>", aliases = "gms")
 public class Command_survival extends TFM_Command
 {
-   @Override
+    @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         if (args.length == 0)
@@ -36,12 +36,12 @@ public class Command_survival extends TFM_Command
                 sender.sendMessage(ChatColor.RED + "Player not found!");
                 return false;
             }
-            
+
             player.setGameMode(GameMode.SURVIVAL);
             player.sendMessage(ChatColor.GOLD + "Set gamemode to " + ChatColor.RED + "SURVIVAL");
             player.sendMessage(ChatColor.RED + "Your gamemode was changed by an admin");
             sender.sendMessage(ChatColor.GREEN + player.getName() + "'s gamemode successfully updated.");
-            
+
         }
         return true;
     }

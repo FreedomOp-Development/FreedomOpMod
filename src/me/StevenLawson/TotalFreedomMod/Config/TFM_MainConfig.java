@@ -79,7 +79,8 @@ public class TFM_MainConfig
                     }
                     else
                     {
-                        TFM_Log.warning("Value for " + entry.getConfigName() + " is of type " + value.getClass().getSimpleName() + ". Needs to be " + entry.getType().getSimpleName() + ". Using default value.");
+                        TFM_Log.warning("Value for " + entry.getConfigName() + " is of type " + value.getClass().getSimpleName() + ". Needs to be " + entry.getType().getSimpleName()
+                                + ". Using default value.");
                     }
                 }
                 else
@@ -202,6 +203,7 @@ public class TFM_MainConfig
         }
     }
 
+    @SuppressWarnings("rawtypes")
     public static List getList(TFM_ConfigEntry entry)
     {
         try

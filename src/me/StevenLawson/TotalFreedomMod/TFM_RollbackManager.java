@@ -208,8 +208,7 @@ public class TFM_RollbackManager
 
     public enum EntryType
     {
-        BLOCK_PLACE("placed"),
-        BLOCK_BREAK("broke");
+        BLOCK_PLACE("placed"), BLOCK_BREAK("broke");
         private final String action;
 
         private EntryType(String action)

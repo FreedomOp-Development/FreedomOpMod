@@ -4,8 +4,7 @@ import java.sql.Connection;
 import org.bukkit.plugin.Plugin;
 
 /**
- * Abstract Database class, serves as a base for any connection method (MySQL,
- * SQLite, etc.)
+ * Abstract Database class, serves as a base for any connection method (MySQL, SQLite, etc.)
  *
  * @author -_Husky_-
  * @author tips48
@@ -21,7 +20,8 @@ public abstract class Database
     /**
      * Creates a new Database
      *
-     * @param plugin Plugin instance
+     * @param plugin
+     *            Plugin instance
      */
     protected Database(Plugin plugin)
     {

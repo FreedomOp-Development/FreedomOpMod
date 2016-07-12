@@ -135,7 +135,7 @@ public class TFM_Admin
     {
         return isSeniorAdmin;
     }
-    
+
     public void setSeniorAdmin(boolean isSenior)
     {
         this.isSeniorAdmin = isSenior;
@@ -145,7 +145,7 @@ public class TFM_Admin
     {
         return isTelnetAdmin;
     }
-    
+
     public void setTelnetAdmin(boolean isTelnet)
     {
         this.isTelnetAdmin = isTelnet;

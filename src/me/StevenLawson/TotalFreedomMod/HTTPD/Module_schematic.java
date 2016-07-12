@@ -24,15 +24,10 @@ public class Module_schematic extends TFM_HTTPD_Module
     private static final String REQUEST_FORM_FILE_ELEMENT_NAME = "schematicFile";
     private static final Pattern SCHEMATIC_FILENAME_LC = Pattern.compile("^[a-z0-9_'!,\\-]{1,30}\\.schematic$");
     private static final String[] SCHEMATIC_FILTER = new String[]
-    {
-        "schematic"
-    };
+        { "schematic" };
     private static final String UPLOAD_FORM = "<form method=\"post\" name=\"schematicForm\" id=\"schematicForm\" action=\"/schematic/upload/\" enctype=\"multipart/form-data\">\n"
             + "<p>Select a schematic file to upload. Filenames must be alphanumeric, between 1 and 30 characters long (inclusive), and have a .schematic extension.</p>\n"
-            + "<input type=\"file\" id=\"schematicFile\" name=\"schematicFile\" />\n"
-            + "<br />\n"
-            + "<button type=\"submit\">Submit</button>\n"
-            + "</form>";
+            + "<input type=\"file\" id=\"schematicFile\" name=\"schematicFile\" />\n" + "<br />\n" + "<button type=\"submit\">Submit</button>\n" + "</form>";
 
     public Module_schematic(NanoHTTPD.HTTPSession session)
     {
@@ -70,7 +65,7 @@ public class Module_schematic extends TFM_HTTPD_Module
         final ModuleMode mode = ModuleMode.getMode(getArg(args, 1));
 
         switch (mode)
-        {
+            {
             case LIST:
             {
                 Collection<File> schematics = FileUtils.listFiles(SCHEMATIC_FOLDER, SCHEMATIC_FILTER, false);
@@ -99,11 +94,7 @@ public class Module_schematic extends TFM_HTTPD_Module
                     }
                 });
 
-                out
-                        .append(HTMLGenerationTools.heading("Schematics:", 1))
-                        .append("<ul>")
-                        .append(StringUtils.join(schematicsFormatted, "\r\n"))
-                        .append("</ul>");
+                out.append(HTMLGenerationTools.heading("Schematics:", 1)).append("<ul>").append(StringUtils.join(schematicsFormatted, "\r\n")).append("</ul>");
 
                 break;
             }
@@ -152,7 +143,7 @@ public class Module_schematic extends TFM_HTTPD_Module
                 out.append(HTMLGenerationTools.paragraph("Invalid request mode."));
                 break;
             }
-        }
+            }
 
         return out.toString();
     }
@@ -234,6 +225,7 @@ public class Module_schematic extends TFM_HTTPD_Module
         return entry != null && entry.isActivated();
     }
 
+    @SuppressWarnings("serial")
     private static class SchematicTransferException extends Exception
     {
         public SchematicTransferException()
@@ -246,6 +238,7 @@ public class Module_schematic extends TFM_HTTPD_Module
         }
     }
 
+    @SuppressWarnings("serial")
     private static class ResponseOverrideException extends Exception
     {
         private final Response response;
@@ -269,10 +262,7 @@ public class Module_schematic extends TFM_HTTPD_Module
 
     private static enum ModuleMode
     {
-        LIST("list"),
-        UPLOAD("upload"),
-        DOWNLOAD("download"),
-        INVALID(null);
+        LIST("list"), UPLOAD("upload"), DOWNLOAD("download"), INVALID(null);
         //
         private final String modeName;
 

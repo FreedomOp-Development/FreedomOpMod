@@ -89,19 +89,22 @@ public class TFM_CommandBlocker
             final Command bukkitCommand = commandMap.getCommand(command);
             if (bukkitCommand == null)
             {
-                //TFM_Log.info("Blocking unknown command: " + blockedCommandEntry.getCommand());
+                // TFM_Log.info("Blocking unknown command: " +
+                // blockedCommandEntry.getCommand());
                 blockedCommands.put(blockedCommandEntry.getCommand(), blockedCommandEntry);
             }
             else
             {
                 blockedCommandEntry.setCommand(bukkitCommand.getName().toLowerCase());
 
-                //TFM_Log.info("Blocking command: " + blockedCommandEntry.getCommand());
+                // TFM_Log.info("Blocking command: " +
+                // blockedCommandEntry.getCommand());
                 blockedCommands.put(blockedCommandEntry.getCommand(), blockedCommandEntry);
 
                 for (String alias : bukkitCommand.getAliases())
                 {
-                    //TFM_Log.info("Blocking alias: " + alias.toLowerCase() + " of " + blockedCommandEntry.getCommand());
+                    // TFM_Log.info("Blocking alias: " + alias.toLowerCase() + "
+                    // of " + blockedCommandEntry.getCommand());
                     blockedCommands.put(alias.toLowerCase(), blockedCommandEntry);
                 }
             }
@@ -166,12 +169,7 @@ public class TFM_CommandBlocker
 
     private static enum CommandBlockerRank
     {
-        ANYONE("a", 0),
-        OP("o", 1),
-        SUPER("s", 2),
-        TELNET("t", 3),
-        SENIOR("c", 4),
-        NOBODY("n", 5);
+        ANYONE("a", 0), OP("o", 1), SUPER("s", 2), TELNET("t", 3), SENIOR("c", 4), NOBODY("n", 5);
         private final String token;
         private final int level;
 
@@ -233,9 +231,7 @@ public class TFM_CommandBlocker
 
     private enum CommandBlockerAction
     {
-        BLOCK("b"),
-        BLOCK_AND_EJECT("a"),
-        BLOCK_UNKNOWN("u");
+        BLOCK("b"), BLOCK_AND_EJECT("a"), BLOCK_UNKNOWN("u");
         private final String token;
 
         private CommandBlockerAction(String token)
@@ -277,7 +273,7 @@ public class TFM_CommandBlocker
         }
 
         @SuppressWarnings("unused")
-		public CommandBlockerAction getAction()
+        public CommandBlockerAction getAction()
         {
             return this.action;
         }
@@ -288,7 +284,7 @@ public class TFM_CommandBlocker
         }
 
         @SuppressWarnings("unused")
-		public String getMessage()
+        public String getMessage()
         {
             return this.message;
         }

@@ -13,7 +13,7 @@ import org.bukkit.event.server.ServerListPingEvent;
 
 public class TFM_ServerListener implements Listener
 {
-    
+
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onServerPing(ServerListPingEvent event)
     {
@@ -45,8 +45,7 @@ public class TFM_ServerListener implements Listener
 
         if (!TFM_ConfigEntry.SERVER_COLORFUL_MOTD.getBoolean())
         {
-            event.setMotd(TFM_Util.colorize(TFM_ConfigEntry.SERVER_MOTD.getString()
-                    .replace("%mcversion%", TFM_ServerInterface.getVersion())));
+            event.setMotd(TFM_Util.colorize(TFM_ConfigEntry.SERVER_MOTD.getString().replace("%mcversion%", TFM_ServerInterface.getVersion())));
             return;
         }
         // Colorful MOTD

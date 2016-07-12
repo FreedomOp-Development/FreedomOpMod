@@ -23,32 +23,22 @@ public class TFM_CommandHandler
             senderIsConsole = false;
             playerSender = (Player) sender;
 
-            TFM_Log.info(String.format("[PLAYER_COMMAND] %s (%s): /%s %s",
-                    playerSender.getName(),
-                    ChatColor.stripColor(playerSender.getDisplayName()),
-                    commandLabel,
-                    StringUtils.join(args, " ")), true);
+            TFM_Log.info(String.format("[PLAYER_COMMAND] %s (%s): /%s %s", playerSender.getName(), ChatColor.stripColor(playerSender.getDisplayName()), commandLabel, StringUtils.join(args, " ")),
+                    true);
         }
         else
         {
             senderIsConsole = true;
             playerSender = null;
 
-            TFM_Log.info(String.format("[CONSOLE_COMMAND] %s: /%s %s",
-                    sender.getName(),
-                    commandLabel,
-                    StringUtils.join(args, " ")), true);
+            TFM_Log.info(String.format("[CONSOLE_COMMAND] %s: /%s %s", sender.getName(), commandLabel, StringUtils.join(args, " ")), true);
         }
-
 
         final TFM_Command dispatcher;
         try
         {
             final ClassLoader classLoader = TotalFreedomMod.class.getClassLoader();
-            dispatcher = (TFM_Command) classLoader.loadClass(String.format("%s.%s%s",
-                    COMMAND_PATH,
-                    COMMAND_PREFIX,
-                    cmd.getName().toLowerCase())).newInstance();
+            dispatcher = (TFM_Command) classLoader.loadClass(String.format("%s.%s%s", COMMAND_PATH, COMMAND_PREFIX, cmd.getName().toLowerCase())).newInstance();
             dispatcher.setup(TotalFreedomMod.plugin, sender, dispatcher.getClass());
         }
         catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex)

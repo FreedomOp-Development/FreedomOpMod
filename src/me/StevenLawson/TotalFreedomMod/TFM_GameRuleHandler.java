@@ -60,15 +60,10 @@ public class TFM_GameRuleHandler
 
     public enum TFM_GameRule
     {
-        DO_FIRE_TICK("doFireTick", TFM_GameRule_Value.TRUE),
-        MOB_GRIEFING("mobGriefing", TFM_GameRule_Value.TRUE),
-        KEEP_INVENTORY("keepInventory", TFM_GameRule_Value.FALSE),
-        DO_MOB_SPAWNING("doMobSpawning", TFM_GameRule_Value.TRUE),
-        DO_MOB_LOOT("doMobLoot", TFM_GameRule_Value.TRUE),
-        DO_TILE_DROPS("doTileDrops", TFM_GameRule_Value.TRUE),
-        COMMAND_BLOCK_OUTPUT("commandBlockOutput", TFM_GameRule_Value.TRUE),
-        NATURAL_REGENERATION("naturalRegeneration", TFM_GameRule_Value.TRUE),
-        DO_DAYLIGHT_CYCLE("doDaylightCycle", TFM_GameRule_Value.TRUE);
+        DO_FIRE_TICK("doFireTick", TFM_GameRule_Value.TRUE), MOB_GRIEFING("mobGriefing", TFM_GameRule_Value.TRUE), KEEP_INVENTORY("keepInventory", TFM_GameRule_Value.FALSE), DO_MOB_SPAWNING(
+                "doMobSpawning",
+                TFM_GameRule_Value.TRUE), DO_MOB_LOOT("doMobLoot", TFM_GameRule_Value.TRUE), DO_TILE_DROPS("doTileDrops", TFM_GameRule_Value.TRUE), COMMAND_BLOCK_OUTPUT("commandBlockOutput",
+                        TFM_GameRule_Value.TRUE), NATURAL_REGENERATION("naturalRegeneration", TFM_GameRule_Value.TRUE), DO_DAYLIGHT_CYCLE("doDaylightCycle", TFM_GameRule_Value.TRUE);
         private final String gameRuleName;
         private final TFM_GameRule_Value defaultValue;
 

@@ -139,13 +139,7 @@ public class TFM_AdminList
         }
 
         // Add new entry
-        final TFM_Admin newAdmin = new TFM_Admin(
-                newUuid,
-                admin.getLastLoginName(),
-                admin.getLastLogin(),
-                admin.getCustomLoginMessage(),
-                admin.isTelnetAdmin(),
-                admin.isSeniorAdmin(),
+        final TFM_Admin newAdmin = new TFM_Admin(newUuid, admin.getLastLoginName(), admin.getLastLogin(), admin.getCustomLoginMessage(), admin.isTelnetAdmin(), admin.isSeniorAdmin(),
                 admin.isActivated());
         newAdmin.addIps(admin.getIps());
         adminList.put(newUuid, newAdmin);
@@ -483,8 +477,7 @@ public class TFM_AdminList
 
         if (!(sender instanceof Player))
         {
-            return seniorConsoleNames.contains(sender.getName())
-                    || (TFM_MainConfig.getBoolean(TFM_ConfigEntry.CONSOLE_IS_SENIOR) && sender.getName().equals("CONSOLE"));
+            return seniorConsoleNames.contains(sender.getName()) || (TFM_MainConfig.getBoolean(TFM_ConfigEntry.CONSOLE_IS_SENIOR) && sender.getName().equals("CONSOLE"));
         }
 
         final TFM_Admin entry = getEntry((Player) sender);
@@ -618,14 +611,7 @@ public class TFM_AdminList
             return;
         }
 
-        final TFM_Admin superadmin = new TFM_Admin(
-                uuid,
-                player.getName(),
-                new Date(),
-                "",
-                false,
-                false,
-                true);
+        final TFM_Admin superadmin = new TFM_Admin(uuid, player.getName(), new Date(), "", false, false, true);
         superadmin.addIp(ip);
 
         adminList.put(uuid, superadmin);
@@ -633,8 +619,7 @@ public class TFM_AdminList
         saveAll();
         updateIndexLists();
     }
-    
-    
+
     public static void addSeniorAdmin(OfflinePlayer player)
     {
         final UUID uuid = TFM_UuidManager.getUniqueId(player);
@@ -677,14 +662,7 @@ public class TFM_AdminList
             return;
         }
 
-        final TFM_Admin superadmin = new TFM_Admin(
-                uuid,
-                player.getName(),
-                new Date(),
-                "",
-                false,
-                false,
-                true);
+        final TFM_Admin superadmin = new TFM_Admin(uuid, player.getName(), new Date(), "", false, false, true);
         superadmin.addIp(ip);
 
         adminList.put(uuid, superadmin);

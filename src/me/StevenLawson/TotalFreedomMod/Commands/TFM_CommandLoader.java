@@ -98,7 +98,6 @@ public class TFM_CommandLoader
         }
     }
 
-    @SuppressWarnings("unchecked")
     public CommandMap getCommandMap()
     {
         Object commandMap = TFM_Util.getField(Bukkit.getServer().getPluginManager(), "commandMap");
@@ -152,15 +151,8 @@ public class TFM_CommandLoader
 
                             if (commandPermissions != null && commandParameters != null)
                             {
-                                TFM_CommandInfo commandInfo = new TFM_CommandInfo(
-                                        commandClass,
-                                        matcher.group(1).split("_")[1],
-                                        commandPermissions.level(),
-                                        commandPermissions.source(),
-                                        commandPermissions.blockHostConsole(),
-                                        commandParameters.description(),
-                                        commandParameters.usage(),
-                                        commandParameters.aliases());
+                                TFM_CommandInfo commandInfo = new TFM_CommandInfo(commandClass, matcher.group(1).split("_")[1], commandPermissions.level(), commandPermissions.source(),
+                                        commandPermissions.blockHostConsole(), commandParameters.description(), commandParameters.usage(), commandParameters.aliases());
 
                                 commandList.add(commandInfo);
                             }
@@ -224,12 +216,13 @@ public class TFM_CommandLoader
             return description;
         }
 
+        @SuppressWarnings("incomplete-switch")
         public String getDescriptionPermissioned()
         {
             String _description = description;
 
             switch (this.getLevel())
-            {
+                {
                 case SENIOR:
                     _description = "Senior " + (this.getSource() == SourceType.ONLY_CONSOLE ? "Console" : "") + " Command - " + _description;
                     break;
@@ -239,7 +232,7 @@ public class TFM_CommandLoader
                 case OP:
                     _description = "OP Command - " + _description;
                     break;
-            }
+                }
 
             return _description;
         }

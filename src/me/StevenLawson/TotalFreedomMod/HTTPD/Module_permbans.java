@@ -20,8 +20,7 @@ public class Module_permbans extends TFM_HTTPD_Module
         }
         else
         {
-            return new NanoHTTPD.Response(NanoHTTPD.Response.Status.NOT_FOUND, NanoHTTPD.MIME_PLAINTEXT,
-                    "Error 404: Not Found - The requested resource was not found on this server.");
+            return new NanoHTTPD.Response(NanoHTTPD.Response.Status.NOT_FOUND, NanoHTTPD.MIME_PLAINTEXT, "Error 404: Not Found - The requested resource was not found on this server.");
         }
     }
 }

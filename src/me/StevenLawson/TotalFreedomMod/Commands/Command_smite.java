@@ -48,16 +48,16 @@ public class Command_smite extends TFM_Command
     public static void smite(final Player player)
     {
         TFM_Util.bcastMsg(player.getName() + " has been a naughty, naughty asshole.", ChatColor.RED);
-        //Deop
+        // Deop
         player.setOp(false);
 
-        //Set gamemode to survival:
+        // Set gamemode to survival:
         player.setGameMode(GameMode.SURVIVAL);
 
-        //Clear inventory:
+        // Clear inventory:
         player.getInventory().clear();
 
-        //Strike with lightning effect:
+        // Strike with lightning effect:
         final Location targetPos = player.getLocation();
         final World world = player.getWorld();
         for (int x = -1; x <= 1; x++)
@@ -69,7 +69,7 @@ public class Command_smite extends TFM_Command
             }
         }
 
-        //Kill:
+        // Kill:
         player.setHealth(0.0);
     }
 }

@@ -11,13 +11,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+@SuppressWarnings("rawtypes")
 public class TFM_ServiceChecker
 {
     public static final Map<String, ServiceStatus> services;
@@ -46,7 +46,7 @@ public class TFM_ServiceChecker
 
     public static void start()
     {
-        final String serviceCheckerURL = TFM_ConfigEntry.SERVICE_CHECKER_URL.getString();
+        final String serviceCheckerURL = "http://status.mojang.com/check?service=";
 
         if (serviceCheckerURL == null || serviceCheckerURL.isEmpty())
         {
@@ -164,9 +164,11 @@ public class TFM_ServiceChecker
     public static class ServiceStatus
     {
         private String name;
-        private String uptime = "100.0"; // skins.minecraft.net, minecraft.net, etc..
+        private String uptime = "100.0"; // skins.minecraft.net, minecraft.net,
+                                         // etc..
         private ChatColor color = ChatColor.DARK_GREEN;
-        private String message = "Online"; // Online, Offline, Quite Slow, 404 Error, 500 Error, etc..
+        private String message = "Online"; // Online, Offline, Quite Slow, 404
+                                           // Error, 500 Error, etc..
 
         public ServiceStatus(String name)
         {

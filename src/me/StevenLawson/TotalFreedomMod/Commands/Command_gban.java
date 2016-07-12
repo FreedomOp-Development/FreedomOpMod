@@ -42,7 +42,7 @@ public class Command_gban extends TFM_Command
 
         // ban name
         TFM_BanManager.addUuidBan(new TFM_Ban(player.getUniqueId(), player.getName()));
-        //IPBAN
+        // IPBAN
         player.kickPlayer("Don't grief you stupid derp :S");
         return true;
     }

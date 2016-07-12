@@ -9,9 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
-@CommandParameters(
-        description = "Protect areas so that only superadmins can directly modify blocks in those areas. WorldEdit and other such plugins might bypass this.",
-        usage = "/<command> <list | clear | remove <label> | add <label> <radius>>")
+@CommandParameters(description = "Protect areas so that only superadmins can directly modify blocks in those areas. WorldEdit and other such plugins might bypass this.", usage = "/<command> <list | clear | remove <label> | add <label> <radius>>")
 public class Command_protectarea extends TFM_Command
 {
     @Override
@@ -22,12 +20,14 @@ public class Command_protectarea extends TFM_Command
             sender.sendMessage(ChatColor.RED + "Protected areas are currently disabled in the TotalFreedomMod configuration.");
             return true;
         }
-        
-        if (args.length == 0) {
+
+        if (args.length == 0)
+        {
             return false;
         }
 
-        else if (args.length == 1) {
+        else if (args.length == 1)
+        {
             if (args[0].equalsIgnoreCase("list"))
             {
                 sender.sendMessage(ChatColor.GRAY + "Protected Areas: " + StringUtils.join(TFM_ProtectedArea.getProtectedAreaLabels(), ", "));

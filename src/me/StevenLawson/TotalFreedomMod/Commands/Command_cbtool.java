@@ -144,8 +144,7 @@ public class Command_cbtool extends TFM_Command
 
                 throw new SubCommandFailureException("No player found in range.");
             }
-        }),
-        PLAYER_DETECT_BOOLEAN("playerdetectboolean", new SubCommandExecutable()
+        }), PLAYER_DETECT_BOOLEAN("playerdetectboolean", new SubCommandExecutable()
         {
             @Override
             public String execute(String[] args) throws SubCommandFailureException
@@ -201,8 +200,10 @@ public class Command_cbtool extends TFM_Command
         public String execute(String[] args) throws SubCommandFailureException;
     }
 
+    @SuppressWarnings("serial")
     private static class SubCommandFailureException extends Exception
     {
+        @SuppressWarnings("unused")
         public SubCommandFailureException()
         {
         }

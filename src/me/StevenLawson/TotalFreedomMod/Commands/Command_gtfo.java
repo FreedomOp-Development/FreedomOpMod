@@ -1,9 +1,7 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.StevenLawson.TotalFreedomMod.Bridge.TFM_WorldEditBridge;
 import me.StevenLawson.TotalFreedomMod.TFM_Ban;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
-import me.StevenLawson.TotalFreedomMod.TFM_RollbackManager;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.apache.commons.lang3.ArrayUtils;
@@ -29,8 +27,8 @@ public class Command_gtfo extends TFM_Command
         }
         if (args.length == 1)
         {
-            sender.sendMessage(ChatColor.DARK_AQUA + "To may admins not using ban reasons so i decided to make them default ;)!");
-            return true;
+            sender.sendMessage(ChatColor.DARK_AQUA + "You must enter a ban reason.");
+            return false;
         }
         Player selected = Bukkit.getServer().getPlayer(args[0]);
         if (selected.getName().equalsIgnoreCase("Robo_Lord") || selected.getName().equalsIgnoreCase("PutYourNameHere"))
@@ -54,20 +52,20 @@ public class Command_gtfo extends TFM_Command
         }
 
         TFM_Util.bcastMsg(player.getName() + " has been a VERY naughty, naughty person.", ChatColor.RED);
-        
-        server.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global");
-       
-//        // Undo WorldEdits:
-//        try
-//        {
-//            TFM_WorldEditBridge.undo(player, 15);
-//        }
-//        catch (NoClassDefFoundError ex)
-//        {
-//        }
-//
-//        // rollback
-//        TFM_RollbackManager.rollback(player.getName());
+
+        Bukkit.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global");
+
+        // // Undo WorldEdits:
+        // try
+        // {
+        // TFM_WorldEditBridge.undo(player, 15);
+        // }
+        // catch (NoClassDefFoundError ex)
+        // {
+        // }
+        //
+        // // rollback
+        // TFM_RollbackManager.rollback(player.getName());
 
         // deop
         player.setOp(false);

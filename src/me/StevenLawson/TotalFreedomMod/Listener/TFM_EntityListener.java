@@ -42,11 +42,12 @@ public class TFM_EntityListener implements Listener
         }
     }
 
+    @SuppressWarnings("incomplete-switch")
     @EventHandler(priority = EventPriority.HIGH)
     public void onEntityDamage(EntityDamageEvent event)
     {
         switch (event.getCause())
-        {
+            {
             case LAVA:
             {
                 if (!TFM_ConfigEntry.ALLOW_LAVA_DAMAGE.getBoolean())
@@ -55,7 +56,7 @@ public class TFM_EntityListener implements Listener
                     return;
                 }
             }
-        }
+            }
 
         if (TFM_ConfigEntry.ENABLE_PET_PROTECT.getBoolean())
         {

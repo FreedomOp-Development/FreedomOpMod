@@ -115,11 +115,7 @@ public class TFM_Player
 
     public final boolean isComplete()
     {
-        return firstJoinName != null
-                && lastJoinName != null
-                && firstJoinUnix != 0
-                && lastJoinUnix != 0
-                && !ips.isEmpty();
+        return firstJoinName != null && lastJoinName != null && firstJoinUnix != 0 && lastJoinUnix != 0 && !ips.isEmpty();
     }
 
     public void save()

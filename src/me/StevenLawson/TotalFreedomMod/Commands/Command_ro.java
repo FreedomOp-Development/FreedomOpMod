@@ -28,9 +28,7 @@ public class Command_ro extends TFM_Command
         final List<Material> materials = new ArrayList<Material>();
 
         for (String materialName : (args[0].contains(",") ? args[0].split(",") : new String[]
-        {
-            args[0]
-        }))
+            { args[0] }))
         {
             Material fromMaterial = Material.matchMaterial(materialName);
             if (fromMaterial == null)

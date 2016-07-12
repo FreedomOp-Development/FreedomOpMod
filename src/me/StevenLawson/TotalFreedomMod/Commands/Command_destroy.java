@@ -1,12 +1,10 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.StevenLawson.TotalFreedomMod.TFM_RollbackManager;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
-import me.StevenLawson.TotalFreedomMod.Bridge.TFM_WorldEditBridge;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -20,6 +18,7 @@ public class Command_destroy extends TFM_Command
 {
 
     @Override
+    @SuppressWarnings("unused")
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         if (args.length == 0)
@@ -39,20 +38,23 @@ public class Command_destroy extends TFM_Command
         {
             reason = StringUtils.join(ArrayUtils.subarray(args, 1, args.length), " ");
         }
-        sender.sendMessage(ChatColor.RED + "Sending that Mother fucker to hell.");
-        TFM_Util.bcastMsg(player.getName() + " has been sent to Hell.", ChatColor.RED);
+        sender.sendMessage(ChatColor.RED + "Sending that mother fucker to hell.");
+        TFM_Util.bcastMsg(player.getName() + " has been sent to hell.", ChatColor.RED);
 
-        // Undo WorldEdits:
-        try
-        {
-            TFM_WorldEditBridge.undo(player, 15);
-        }
-        catch (NoClassDefFoundError ex)
-        {
-        }
+        // Use CoreProtect rollback function
+        Bukkit.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global");
 
-        // rollback
-        TFM_RollbackManager.rollback(player.getName());
+        // // Undo WorldEdits:
+        // try
+        // {
+        // TFM_WorldEditBridge.undo(player, 15);
+        // }
+        // catch (NoClassDefFoundError ex)
+        // {
+        // }
+        //
+        // // rollback
+        // TFM_RollbackManager.rollback(player.getName());
 
         // deop
         player.setOp(false);
@@ -73,15 +75,15 @@ public class Command_destroy extends TFM_Command
                 targetPos.getWorld().strikeLightning(strike_pos);
             }
         }
-        //kill them.
+        // kill them.
         player.setHealth(0.0);
-        //welcome xD
+        // welcome xD
         player.sendMessage(ChatColor.RED + "Welcome to hell mother fucker");
-        //insult them
+        // insult them
         player.sendMessage(ChatColor.RED + "You faggot ass bitch go die in a hole");
-        //send the admin the message
+        // send the admin the message
         sender.sendMessage(TotalFreedomMod.FREEDOMOP_MOD + ChatColor.WHITE + "The deed has been done.");
-        sender.sendMessage(ChatColor.RED + "Banning is no longer done on here but it undos there edits and rolls them back :P");
+        sender.sendMessage(ChatColor.RED + "Banning doesn't happen in this command.");
         return true;
     }
 

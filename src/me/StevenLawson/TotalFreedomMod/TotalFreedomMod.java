@@ -99,8 +99,7 @@ public class TotalFreedomMod extends JavaPlugin
 
         if (!TFM_ServerInterface.COMPILE_NMS_VERSION.equals(TFM_Util.getNmsVersion()))
         {
-            TFM_Log.warning(pluginName + " is compiled for " + TFM_ServerInterface.COMPILE_NMS_VERSION + " but the server is running "
-                    + "version " + TFM_Util.getNmsVersion() + "!");
+            TFM_Log.warning(pluginName + " is compiled for " + TFM_ServerInterface.COMPILE_NMS_VERSION + " but the server is running " + "version " + TFM_Util.getNmsVersion() + "!");
             TFM_Log.warning("This might result in unexpected behaviour!");
         }
 
@@ -147,10 +146,6 @@ public class TotalFreedomMod extends JavaPlugin
         {
             TFM_Log.warning("Could not load world: AdminWorld");
         }
-        
-        
-        
-        
 
         // Initialize game rules
         TFM_GameRuleHandler.setGameRule(TFM_GameRuleHandler.TFM_GameRule.DO_DAYLIGHT_CYCLE, !TFM_ConfigEntry.DISABLE_NIGHT.getBoolean(), false);
@@ -226,13 +221,15 @@ public class TotalFreedomMod extends JavaPlugin
         return TFM_CommandHandler.handleCommand(sender, cmd, commandLabel, args);
     }
 
-    public static class BuildProperties {
+    public static class BuildProperties
+    {
         public String builder;
         public String number;
         public String head;
         public String date;
 
-        public void load() {
+        public void load()
+        {
             try
             {
                 final InputStream in = plugin.getResource("build.properties");
@@ -254,7 +251,8 @@ public class TotalFreedomMod extends JavaPlugin
             }
         }
 
-        public String formattedVersion() {
+        public String formattedVersion()
+        {
             return pluginVersion + "." + number + " (" + head + ")";
         }
     }

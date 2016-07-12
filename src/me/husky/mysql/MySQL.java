@@ -29,12 +29,18 @@ public class MySQL extends Database
     /**
      * Creates a new MySQL instance
      *
-     * @param plugin Plugin instance
-     * @param hostname Name of the host
-     * @param port Port number
-     * @param database Database name
-     * @param username Username
-     * @param password Password
+     * @param plugin
+     *            Plugin instance
+     * @param hostname
+     *            Name of the host
+     * @param port
+     *            Port number
+     * @param database
+     *            Database name
+     * @param username
+     *            Username
+     * @param password
+     *            Password
      */
     public MySQL(Plugin plugin, String hostname, String port, String database, String username, String password)
     {

@@ -32,17 +32,13 @@ public class Module_help extends TFM_HTTPD_Module
 
         CommandMap commandMap;
         HashMap<String, Command> knownCommands;
-        if ((commandMap = TFM_CommandLoader.getInstance().getCommandMap()) == null
-                || (knownCommands = TFM_CommandLoader.getInstance().getKnownCommands(commandMap)) == null)
+        if ((commandMap = TFM_CommandLoader.getInstance().getCommandMap()) == null || (knownCommands = TFM_CommandLoader.getInstance().getKnownCommands(commandMap)) == null)
         {
             return paragraph("Error loading commands.");
         }
 
-        responseBody
-                .append(heading("Command Help", 1))
-                .append(paragraph(
-                                "This page is an automatically generated listing of all plugin commands that are currently live on the server. "
-                                + "Please note that it does not include vanilla server commands."));
+        responseBody.append(heading("Command Help", 1)).append(paragraph(
+                "This page is an automatically generated listing of all plugin commands that are currently live on the server. " + "Please note that it does not include vanilla server commands."));
 
         final Map<String, List<Command>> commandsByPlugin = new HashMap<String, List<Command>>();
 
@@ -117,21 +113,15 @@ public class Module_help extends TFM_HTTPD_Module
     {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(
-                "<li><span class=\"commandName\">{$CMD_NAME}</span> - Usage: <span class=\"commandUsage\">{$CMD_USAGE}</span>"
-                .replace("{$CMD_NAME}", escapeHtml4(command.getName().trim()))
+        sb.append("<li><span class=\"commandName\">{$CMD_NAME}</span> - Usage: <span class=\"commandUsage\">{$CMD_USAGE}</span>".replace("{$CMD_NAME}", escapeHtml4(command.getName().trim()))
                 .replace("{$CMD_USAGE}", escapeHtml4(command.getUsage().trim())));
 
         if (!command.getAliases().isEmpty())
         {
-            sb.append(
-                    " - Aliases: <span class=\"commandAliases\">{$CMD_ALIASES}</span>"
-                    .replace("{$CMD_ALIASES}", escapeHtml4(StringUtils.join(command.getAliases(), ", "))));
+            sb.append(" - Aliases: <span class=\"commandAliases\">{$CMD_ALIASES}</span>".replace("{$CMD_ALIASES}", escapeHtml4(StringUtils.join(command.getAliases(), ", "))));
         }
 
-        sb.append(
-                "<br><span class=\"commandDescription\">{$CMD_DESC}</span></li>\r\n"
-                .replace("{$CMD_DESC}", escapeHtml4(command.getDescription().trim())));
+        sb.append("<br><span class=\"commandDescription\">{$CMD_DESC}</span></li>\r\n".replace("{$CMD_DESC}", escapeHtml4(command.getDescription().trim())));
 
         return sb.toString();
     }
@@ -147,9 +137,9 @@ public class Module_help extends TFM_HTTPD_Module
     {
         return ".commandName{font-weight:bold;}.commandDescription{padding-left:15px;}li{margin:.15em;padding:.15em;}";
     }
-//    @Override
-//    public String getScript()
-//    {
-//        return "$(document).ready(function(){console.log(\"Ready\");});";
-//    }
+    // @Override
+    // public String getScript()
+    // {
+    // return "$(document).ready(function(){console.log(\"Ready\");});";
+    // }
 }

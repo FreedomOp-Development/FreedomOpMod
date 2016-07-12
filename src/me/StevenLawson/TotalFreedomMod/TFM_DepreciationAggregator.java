@@ -15,24 +15,26 @@ import org.bukkit.material.MaterialData;
 @SuppressWarnings("deprecation")
 public class TFM_DepreciationAggregator
 {
-    public static Block getTargetBlock(LivingEntity entity, HashSet< Byte> transparent, int maxDistance)
+    public static Block getTargetBlock(LivingEntity entity, HashSet<Byte> transparent, int maxDistance)
     {
         return entity.getTargetBlock(transparent, maxDistance);
     }
-    
-    public static ItemStack getItemInHand(Player sender) {
+
+    public static ItemStack getItemInHand(Player sender)
+    {
         return sender.getItemInHand();
     }
-    
-    
-    public static MinecraftServer getServer() {
+
+    public static MinecraftServer getServer()
+    {
         return MinecraftServer.getServer();
     }
 
-    public static void setItemInHand(ItemStack stack, Player sender) {
+    public static void setItemInHand(ItemStack stack, Player sender)
+    {
         sender.setItemInHand(stack);
     }
-    
+
     public static OfflinePlayer getOfflinePlayer(Server server, String name)
     {
         return server.getOfflinePlayer(name);

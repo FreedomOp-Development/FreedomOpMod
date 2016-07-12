@@ -14,8 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 @SuppressWarnings("deprecation")
 @CommandPermissions(level = AdminLevel.OP, source = SourceType.ONLY_IN_GAME)
-@CommandParameters(description = "Throw a mob in the direction you are facing when you left click with a stick.",
-        usage = "/<command> <mobtype [speed] | off | list>")
+@CommandParameters(description = "Throw a mob in the direction you are facing when you left click with a stick.", usage = "/<command> <mobtype [speed] | off | list>")
 public class Command_tossmob extends TFM_Command
 {
     @Override

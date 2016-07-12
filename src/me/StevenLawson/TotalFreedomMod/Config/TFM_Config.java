@@ -14,7 +14,8 @@ import org.bukkit.plugin.Plugin;
  *
  * @see YamlConfiguration
  */
-public class TFM_Config extends YamlConfiguration // BukkitLib @ https://github.com/Pravian/BukkitLib
+//BukkitLib @ https://github.com/Pravian/BukkitLib
+public class TFM_Config extends YamlConfiguration 
 {
     private final Plugin plugin;
     private final File configFile;
@@ -22,16 +23,21 @@ public class TFM_Config extends YamlConfiguration // BukkitLib @ https://github.
 
     /**
      * Creates a new YamlConfig instance.
-     *
-     * <p>Example:
+     * <p>
+     * Example:
+     * 
      * <pre>
      * YamlConfig config = new YamlConfig(this, "config.yml", true);
      * config.load();
-     * </pre></p>
+     * </pre>
+     * </p>
      *
-     * @param plugin The plugin to which the config belongs.
-     * @param fileName The filename of the config file.
-     * @param copyDefaults If the defaults should be copied and/loaded from a config in the plugin jar-file.
+     * @param plugin
+     *            The plugin to which the config belongs.
+     * @param fileName
+     *            The filename of the config file.
+     * @param copyDefaults
+     *            If the defaults should be copied and/loaded from a config in the plugin jar-file.
      */
     public TFM_Config(Plugin plugin, String fileName, boolean copyDefaults)
     {
@@ -40,16 +46,21 @@ public class TFM_Config extends YamlConfiguration // BukkitLib @ https://github.
 
     /**
      * Creates a new YamlConfig instance.
-     *
-     * <p>Example:
+     * <p>
+     * Example:
+     * 
      * <pre>
      * YamlConfig config = new YamlConfig(this, new File(plugin.getDataFolder() + "/players", "DarthSalamon.yml"), false);
      * config.load();
-     * </pre></p>
+     * </pre>
+     * </p>
      *
-     * @param plugin The plugin to which the config belongs.
-     * @param file The file of the config file.
-     * @param copyDefaults If the defaults should be copied and/loaded from a config in the plugin jar-file.
+     * @param plugin
+     *            The plugin to which the config belongs.
+     * @param file
+     *            The file of the config file.
+     * @param copyDefaults
+     *            If the defaults should be copied and/loaded from a config in the plugin jar-file.
      */
     public TFM_Config(Plugin plugin, File file, boolean copyDefaults)
     {
@@ -78,8 +89,9 @@ public class TFM_Config extends YamlConfiguration // BukkitLib @ https://github.
 
     /**
      * Loads the configuration from the predefined file.
-     *
-     * <p>Optionally, if loadDefaults has been set to true, the file will be copied over from the default inside the jar-file of the owning plugin.</p>
+     * <p>
+     * Optionally, if loadDefaults has been set to true, the file will be copied over from the default inside the jar-file of the owning plugin.
+     * </p>
      *
      * @see #YamlConfig(Plugin, String, boolean)
      */
@@ -132,6 +144,7 @@ public class TFM_Config extends YamlConfiguration // BukkitLib @ https://github.
 
     /**
      * Returns the default configuration as been stored in the jar-file of the owning plugin.
+     * 
      * @return The default configuration.
      */
     @SuppressWarnings("deprecation")

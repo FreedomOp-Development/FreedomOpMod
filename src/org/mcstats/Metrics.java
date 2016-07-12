@@ -136,10 +136,10 @@ public class Metrics
     }
 
     /**
-     * Construct and create a Graph that can be used to separate specific plotters to their own graphs on the metrics
-     * website. Plotters can be added to the graph object returned.
+     * Construct and create a Graph that can be used to separate specific plotters to their own graphs on the metrics website. Plotters can be added to the graph object returned.
      *
-     * @param name The name of the graph
+     * @param name
+     *            The name of the graph
      * @return Graph object created. Will never return NULL under normal circumstances unless bad parameters are given
      */
     public Graph createGraph(final String name)
@@ -162,7 +162,8 @@ public class Metrics
     /**
      * Add a Graph object to BukkitMetrics that represents data for the plugin that should be sent to the backend
      *
-     * @param graph The name of the graph
+     * @param graph
+     *            The name of the graph
      */
     public void addGraph(final Graph graph)
     {
@@ -175,9 +176,8 @@ public class Metrics
     }
 
     /**
-     * Start measuring statistics. This will immediately create an async repeating task as the plugin and send the
-     * initial data to the metrics backend, and then after that it will post in increments of PING_INTERVAL * 1200
-     * ticks.
+     * Start measuring statistics. This will immediately create an async repeating task as the plugin and send the initial data to the metrics backend, and then after that it will post in increments
+     * of PING_INTERVAL * 1200 ticks.
      *
      * @return True if statistics measuring is running, otherwise false.
      */
@@ -206,15 +206,18 @@ public class Metrics
                 {
                     try
                     {
-                        // This has to be synchronized or it can collide with the disable method.
+                        // This has to be synchronized or it can collide with
+                        // the disable method.
                         synchronized (optOutLock)
                         {
-                            // Disable Task, if it is running and the server owner decided to opt-out
+                            // Disable Task, if it is running and the server
+                            // owner decided to opt-out
                             if (isOptOut() && task != null)
                             {
                                 task.cancel();
                                 task = null;
-                                // Tell all plotters to stop gathering information.
+                                // Tell all plotters to stop gathering
+                                // information.
                                 for (Graph graph : graphs)
                                 {
                                     graph.onOptOut();
@@ -222,9 +225,11 @@ public class Metrics
                             }
                         }
 
-                        // We use the inverse of firstPost because if it is the first time we are posting,
+                        // We use the inverse of firstPost because if it is the
+                        // first time we are posting,
                         // it is not a interval ping, so it evaluates to FALSE
-                        // Each time thereafter it will evaluate to TRUE, i.e PING!
+                        // Each time thereafter it will evaluate to TRUE, i.e
+                        // PING!
                         postPlugin(!firstPost);
 
                         // After the first post we set firstPost to false
@@ -286,10 +291,12 @@ public class Metrics
      */
     public void enable() throws IOException
     {
-        // This has to be synchronized or it can collide with the check in the task.
+        // This has to be synchronized or it can collide with the check in the
+        // task.
         synchronized (optOutLock)
         {
-            // Check if the server owner has already set opt-out, if not, set it.
+            // Check if the server owner has already set opt-out, if not, set
+            // it.
             if (isOptOut())
             {
                 configuration.set("opt-out", false);
@@ -311,10 +318,12 @@ public class Metrics
      */
     public void disable() throws IOException
     {
-        // This has to be synchronized or it can collide with the check in the task.
+        // This has to be synchronized or it can collide with the check in the
+        // task.
         synchronized (optOutLock)
         {
-            // Check if the server owner has already set opt-out, if not, set it.
+            // Check if the server owner has already set opt-out, if not, set
+            // it.
             if (!isOptOut())
             {
                 configuration.set("opt-out", true);
@@ -337,7 +346,8 @@ public class Metrics
      */
     public File getConfigFile()
     {
-        // I believe the easiest way to get the base folder (e.g craftbukkit set via -P) for plugins to use
+        // I believe the easiest way to get the base folder (e.g craftbukkit set
+        // via -P) for plugins to use
         // is to abuse the plugin object we already have
         // plugin.getDataFolder() => base/plugins/PluginA/
         // pluginsFolder => base/plugins/
@@ -356,17 +366,22 @@ public class Metrics
         // Server software specific section
         PluginDescriptionFile description = plugin.getDescription();
         String pluginName = description.getName();
-        boolean onlineMode = Bukkit.getServer().getOnlineMode(); // TRUE if online mode is enabled
+        boolean onlineMode = Bukkit.getServer().getOnlineMode(); // TRUE if
+                                                                 // online
+                                                                 // mode is
+                                                                 // enabled
         String pluginVersion = description.getVersion();
         String serverVersion = Bukkit.getVersion();
         int playersOnline = Bukkit.getServer().getOnlinePlayers().size();
 
-        // END server software specific section -- all code below does not use any code outside of this class / Java
+        // END server software specific section -- all code below does not use
+        // any code outside of this class / Java
         // Construct the post data
         StringBuilder json = new StringBuilder(1024);
         json.append('{');
 
-        // The plugin's description file containg all of the plugin data such as name, version, author, etc
+        // The plugin's description file containg all of the plugin data such as
+        // name, version, author, etc
         appendJSONPair(json, "guid", guid);
         appendJSONPair(json, "plugin_version", pluginVersion);
         appendJSONPair(json, "server_version", serverVersion);
@@ -508,23 +523,23 @@ public class Metrics
             throw new IOException(response);
         }
         else // Is this the first update this hour?
-         if (response.equals("1") || response.contains("This is your first update this hour"))
+        if (response.equals("1") || response.contains("This is your first update this hour"))
+        {
+            synchronized (graphs)
             {
-                synchronized (graphs)
+                final Iterator<Graph> iter = graphs.iterator();
+
+                while (iter.hasNext())
                 {
-                    final Iterator<Graph> iter = graphs.iterator();
+                    final Graph graph = iter.next();
 
-                    while (iter.hasNext())
+                    for (Plotter plotter : graph.getPlotters())
                     {
-                        final Graph graph = iter.next();
-
-                        for (Plotter plotter : graph.getPlotters())
-                        {
-                            plotter.reset();
-                        }
+                        plotter.reset();
                     }
                 }
             }
+        }
     }
 
     /**
@@ -641,7 +656,7 @@ public class Metrics
             char chr = text.charAt(index);
 
             switch (chr)
-            {
+                {
                 case '"':
                 case '\\':
                     builder.append('\\');
@@ -670,7 +685,7 @@ public class Metrics
                         builder.append(chr);
                     }
                     break;
-            }
+                }
         }
         builder.append('"');
 
@@ -680,7 +695,8 @@ public class Metrics
     /**
      * Encode text as UTF-8
      *
-     * @param text the text to encode
+     * @param text
+     *            the text to encode
      * @return the encoded text, as UTF-8
      */
     private static String urlEncode(final String text) throws UnsupportedEncodingException
@@ -694,8 +710,7 @@ public class Metrics
     public static class Graph
     {
         /**
-         * The graph's name, alphanumeric and spaces only :) If it does not comply to the above when submitted, it is
-         * rejected
+         * The graph's name, alphanumeric and spaces only :) If it does not comply to the above when submitted, it is rejected
          */
         private final String name;
         /**
@@ -721,7 +736,8 @@ public class Metrics
         /**
          * Add a plotter to the graph, which will be used to plot entries
          *
-         * @param plotter the plotter to add to the graph
+         * @param plotter
+         *            the plotter to add to the graph
          */
         public void addPlotter(final Plotter plotter)
         {
@@ -731,7 +747,8 @@ public class Metrics
         /**
          * Remove a plotter from the graph
          *
-         * @param plotter the plotter to remove from the graph
+         * @param plotter
+         *            the plotter to remove from the graph
          */
         public void removePlotter(final Plotter plotter)
         {
@@ -795,7 +812,8 @@ public class Metrics
         /**
          * Construct a plotter with a specific plot name
          *
-         * @param name the name of the plotter to use, which will show up on the website
+         * @param name
+         *            the name of the plotter to use, which will show up on the website
          */
         public Plotter(final String name)
         {
@@ -803,9 +821,8 @@ public class Metrics
         }
 
         /**
-         * Get the current value for the plotted point. Since this function defers to an external function it may or may
-         * not return immediately thus cannot be guaranteed to be thread friendly or safe. This function can be called
-         * from any thread so care should be taken when accessing resources that need to be synchronized.
+         * Get the current value for the plotted point. Since this function defers to an external function it may or may not return immediately thus cannot be guaranteed to be thread friendly or safe.
+         * This function can be called from any thread so care should be taken when accessing resources that need to be synchronized.
          *
          * @return the current value for the point to be plotted.
          */

@@ -50,10 +50,15 @@ public class CleanroomChunkGenerator extends ChunkGenerator
             {
                 int y = 0;
 
-                layer = new short[128]; // Default to 128, will be resized later if required
+                layer = new short[128]; // Default to 128, will be resized later
+                                        // if required
                 layerDataValues = null;
 
-                if ((id.length() > 0) && (id.charAt(0) == '.')) // Is the first character a '.'? If so, skip bedrock generation.
+                if ((id.length() > 0) && (id.charAt(0) == '.')) // Is the first
+                                                                // character a
+                                                                // '.'? If so,
+                                                                // skip bedrock
+                                                                // generation.
                 {
                     id = id.substring(1); // Skip bedrock then and remove the .
                 }
@@ -105,7 +110,8 @@ public class CleanroomChunkGenerator extends ChunkGenerator
                             }
                             catch (Exception e)
                             {
-                                // Well, I guess it wasn't an integer after all... Awkward...
+                                // Well, I guess it wasn't an integer after
+                                // all... Awkward...
                             }
 
                             if (mat == null)
@@ -213,7 +219,8 @@ public class CleanroomChunkGenerator extends ChunkGenerator
         }
         else
         {
-            // This is the default, but just in case default populators change to stock minecraft populators by default...
+            // This is the default, but just in case default populators change
+            // to stock minecraft populators by default...
             return new ArrayList<BlockPopulator>();
         }
     }
@@ -228,7 +235,9 @@ public class CleanroomChunkGenerator extends ChunkGenerator
 
         if ((world.getHighestBlockYAt(0, 0) <= 0) && (world.getBlockAt(0, 0, 0).getType() == Material.AIR)) // SPACE!
         {
-            return new Location(world, 0, 64, 0); // Lets allow people to drop a little before hitting the void then shall we?
+            return new Location(world, 0, 64, 0); // Lets allow people to drop a
+                                                  // little before hitting the
+                                                  // void then shall we?
         }
 
         return new Location(world, 0, world.getHighestBlockYAt(0, 0), 0);

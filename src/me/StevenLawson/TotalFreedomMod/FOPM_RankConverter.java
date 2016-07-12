@@ -12,18 +12,20 @@ public class FOPM_RankConverter
         {
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
     }
-    
+
     public static boolean isOwner(CommandSender sender)
     {
         if (TFM_AdminList.isSeniorAdmin(sender) && TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
         {
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
     }

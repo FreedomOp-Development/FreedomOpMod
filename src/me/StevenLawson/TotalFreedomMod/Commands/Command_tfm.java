@@ -41,9 +41,7 @@ public class Command_tfm extends TFM_Command
             TFM_BanManager.load();
             TFM_CommandBlocker.getInstance().load();
 
-            final String message = String.format("%s v%s reloaded.",
-                    TotalFreedomMod.pluginName,
-                    TotalFreedomMod.pluginVersion);
+            final String message = String.format("%s v%s reloaded.", TotalFreedomMod.pluginName, TotalFreedomMod.pluginVersion);
 
             sender.sendMessage(message);
             TFM_Log.info(message);
@@ -54,19 +52,10 @@ public class Command_tfm extends TFM_Command
         sender.sendMessage(ChatColor.GOLD + "TotalFreedomMod for 'Total Freedom', the original all-op server.");
         sender.sendMessage(ChatColor.GOLD + "Running on " + TFM_ConfigEntry.SERVER_NAME.getString() + ".");
         sender.sendMessage(ChatColor.GOLD + "Created by Madgeek1450 and Prozza.");
-        sender.sendMessage(ChatColor.GOLD + String.format("Version "
-                + ChatColor.BLUE + "%s.%s " + ChatColor.GOLD + "("
-                + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
-                TotalFreedomMod.pluginVersion,
-                build.number,
-                build.head));
-        sender.sendMessage(ChatColor.GOLD + String.format("Compiled "
-                + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
-                + ChatColor.BLUE + "%s",
-                build.date,
-                build.builder));
-        sender.sendMessage(ChatColor.GREEN + "Visit " + ChatColor.AQUA + "http://github.com/TotalFreedom/TotalFreedomMod"
-                + ChatColor.GREEN + " for more information.");
+        sender.sendMessage(ChatColor.GOLD
+                + String.format("Version " + ChatColor.BLUE + "%s.%s " + ChatColor.GOLD + "(" + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")", TotalFreedomMod.pluginVersion, build.number, build.head));
+        sender.sendMessage(ChatColor.GOLD + String.format("Compiled " + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by " + ChatColor.BLUE + "%s", build.date, build.builder));
+        sender.sendMessage(ChatColor.GREEN + "Visit " + ChatColor.AQUA + "http://github.com/TotalFreedom/TotalFreedomMod" + ChatColor.GREEN + " for more information.");
 
         return true;
     }

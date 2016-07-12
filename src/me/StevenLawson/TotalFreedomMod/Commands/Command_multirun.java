@@ -38,8 +38,7 @@ public class Command_multirun extends TFM_Command
         {
             Bukkit.dispatchCommand(sender, baseCommand);
             i++;
-        }
-        while (i < Integer.parseInt(args[0]));
+        } while (i < Integer.parseInt(args[0]));
         return true;
     }
 }

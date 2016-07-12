@@ -73,7 +73,8 @@ public class TFM_BlockListener implements Listener
             final Long lastRan = TFM_Heartbeat.getLastRan();
             if (lastRan == null || lastRan + TotalFreedomMod.HEARTBEAT_RATE * 1000L < System.currentTimeMillis())
             {
-                // TFM_Log.warning("Heartbeat service timeout - can't check block place/break rates.");
+                // TFM_Log.warning("Heartbeat service timeout - can't check
+                // block place/break rates.");
             }
             else if (playerdata.incrementAndGetBlockDestroyCount() > TFM_ConfigEntry.NUKE_MONITOR_COUNT_BREAK.getInteger())
             {
@@ -99,6 +100,7 @@ public class TFM_BlockListener implements Listener
         }
     }
 
+    @SuppressWarnings("incomplete-switch")
     @EventHandler(priority = EventPriority.HIGH)
     public void onBlockPlace(BlockPlaceEvent event)
     {
@@ -140,7 +142,8 @@ public class TFM_BlockListener implements Listener
             Long lastRan = TFM_Heartbeat.getLastRan();
             if (lastRan == null || lastRan + TotalFreedomMod.HEARTBEAT_RATE * 1000L < System.currentTimeMillis())
             {
-                //TFM_Log.warning("Heartbeat service timeout - can't check block place/break rates.");
+                // TFM_Log.warning("Heartbeat service timeout - can't check
+                // block place/break rates.");
             }
             else if (playerdata.incrementAndGetBlockPlaceCount() > TFM_ConfigEntry.NUKE_MONITOR_COUNT_PLACE.getInteger())
             {
@@ -167,7 +170,7 @@ public class TFM_BlockListener implements Listener
         }
 
         switch (event.getBlockPlaced().getType())
-        {
+            {
             case LAVA:
             case STATIONARY_LAVA:
             {
@@ -238,7 +241,7 @@ public class TFM_BlockListener implements Listener
                 }
                 break;
             }
-        }
+            }
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)

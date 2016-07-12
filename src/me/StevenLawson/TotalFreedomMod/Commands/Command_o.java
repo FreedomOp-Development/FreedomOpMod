@@ -9,10 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
-@CommandParameters(
-        description = "AdminChat - Talk privately with other admins. Using <command> itself will toggle AdminChat on and off for all messages.",
-        usage = "/<command> [message...]",
-        aliases = "adminchat")
+@CommandParameters(description = "AdminChat - Talk privately with other admins. Using <command> itself will toggle AdminChat on and off for all messages.", usage = "/<command> [message...]", aliases = "adminchat")
 public class Command_o extends TFM_Command
 {
     @Override
@@ -27,11 +24,12 @@ public class Command_o extends TFM_Command
             }
 
             TFM_PlayerData userinfo = TFM_PlayerData.getPlayerData(sender_p);
-            
-            if (userinfo.inSeniorAdminChat()) {
+
+            if (userinfo.inSeniorAdminChat())
+            {
                 userinfo.setSeniorAdminChat(!userinfo.inSeniorAdminChat());
             }
-            
+
             userinfo.setAdminChat(!userinfo.inAdminChat());
             sender.sendMessage(ChatColor.GRAY + "Toggled Admin Chat " + (userinfo.inAdminChat() ? "on" : "off") + ".");
         }

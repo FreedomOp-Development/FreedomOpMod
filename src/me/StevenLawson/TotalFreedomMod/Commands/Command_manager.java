@@ -55,7 +55,6 @@ public class Command_manager extends TFM_Command
         return true;
     }
 
-    
     {
 
     }

@@ -66,12 +66,8 @@ public class Command_logs extends TFM_Command
                         sender.sendMessage(ChatColor.YELLOW + "Connecting...");
                     }
 
-                    URL url = new URLBuilder(logsRegisterURL)
-                            .addQueryParameter("mode", mode.toString())
-                            .addQueryParameter("password", logsRegisterPassword)
-                            .addQueryParameter("name", targetName)
-                            .addQueryParameter("ip", targetIP)
-                            .getURL();
+                    URL url = new URLBuilder(logsRegisterURL).addQueryParameter("mode", mode.toString()).addQueryParameter("password", logsRegisterPassword).addQueryParameter("name", targetName)
+                            .addQueryParameter("ip", targetIP).getURL();
 
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setConnectTimeout(1000 * 5);

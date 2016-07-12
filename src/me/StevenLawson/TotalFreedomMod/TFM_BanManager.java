@@ -127,8 +127,7 @@ public class TFM_BanManager
                 continue;
             }
 
-            wildcardCheck:
-            if (ban.getSubject().contains("*"))
+            wildcardCheck: if (ban.getSubject().contains("*"))
             {
                 final String[] subjectParts = ban.getSubject().split("\\.");
                 final String[] ipParts = ip.split("\\.");

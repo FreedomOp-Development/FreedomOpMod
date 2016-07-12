@@ -86,56 +86,49 @@ public class TFM_HTTPD_Manager
             {
                 return new Response(Response.Status.OK, NanoHTTPD.MIME_PLAINTEXT, "The DUMP module is disabled. It is intended for debugging use only.");
             }
-        }),
-        HELP(new ModuleExecutable(true, "help")
+        }), HELP(new ModuleExecutable(true, "help")
         {
             @Override
             public Response getResponse(HTTPSession session)
             {
                 return new Module_help(session).getResponse();
             }
-        }),
-        LIST(new ModuleExecutable(true, "list")
+        }), LIST(new ModuleExecutable(true, "list")
         {
             @Override
             public Response getResponse(HTTPSession session)
             {
                 return new Module_list(session).getResponse();
             }
-        }),
-        FILE(new ModuleExecutable(false, "file")
+        }), FILE(new ModuleExecutable(false, "file")
         {
             @Override
             public Response getResponse(HTTPSession session)
             {
                 return new Module_file(session).getResponse();
             }
-        }),
-        SCHEMATIC(new ModuleExecutable(false, "schematic")
+        }), SCHEMATIC(new ModuleExecutable(false, "schematic")
         {
             @Override
             public Response getResponse(HTTPSession session)
             {
                 return new Module_schematic(session).getResponse();
             }
-        }),
-        PERMBANS(new ModuleExecutable(false, "permbans")
+        }), PERMBANS(new ModuleExecutable(false, "permbans")
         {
             @Override
             public Response getResponse(HTTPSession session)
             {
                 return new Module_permbans(session).getResponse();
             }
-        }),
-        PLAYERS(new ModuleExecutable(true, "players")
+        }), PLAYERS(new ModuleExecutable(true, "players")
         {
             @Override
             public Response getResponse(HTTPSession session)
             {
                 return new Module_players(session).getResponse();
             }
-        }),
-        LOGS(new ModuleExecutable(false, "logs")
+        }), LOGS(new ModuleExecutable(false, "logs")
         {
             @Override
             public Response getResponse(HTTPSession session)

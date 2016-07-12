@@ -135,13 +135,7 @@ public class TFM_PlayerList
         }
 
         // Add new entry
-        final TFM_Player newEntry = new TFM_Player(
-                newUuid,
-                entry.getFirstLoginName(),
-                entry.getLastLoginName(),
-                entry.getFirstLoginUnix(),
-                entry.getLastLoginUnix(),
-                entry.getIps());
+        final TFM_Player newEntry = new TFM_Player(newUuid, entry.getFirstLoginName(), entry.getLastLoginName(), entry.getFirstLoginUnix(), entry.getLastLoginUnix(), entry.getIps());
         newEntry.save();
         PLAYER_LIST.put(newUuid, newEntry);
 

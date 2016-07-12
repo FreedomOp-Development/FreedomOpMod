@@ -257,9 +257,6 @@ logs:
   url: ''
   secret: ''
 
-# Mojang service checker
-service_checker_url: http://status.mojang.com/check
-
 # HTTPD
 httpd:
   enabled: true

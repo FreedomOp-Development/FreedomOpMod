@@ -17,9 +17,7 @@ public class Command_droptoggle extends TFM_Command
         {
             return false;
         }
-        TFM_Util.adminAction(sender.getName(),
-                (TFM_ConfigEntry.AUTO_ENTITY_WIPE.setBoolean(!args[0].equalsIgnoreCase("off")) ? "Enabled" : "Disabled")
-                + " automatic entity wiping.", false);
+        TFM_Util.adminAction(sender.getName(), (TFM_ConfigEntry.AUTO_ENTITY_WIPE.setBoolean(!args[0].equalsIgnoreCase("off")) ? "Enabled" : "Disabled") + " automatic entity wiping.", false);
         return true;
     }
 }

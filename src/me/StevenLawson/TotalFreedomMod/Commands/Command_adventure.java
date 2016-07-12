@@ -36,12 +36,12 @@ public class Command_adventure extends TFM_Command
                 sender.sendMessage(ChatColor.RED + "Player not found!");
                 return false;
             }
-            
+
             player.setGameMode(GameMode.ADVENTURE);
             player.sendMessage(ChatColor.GOLD + "Set gamemode to " + ChatColor.AQUA + "ADVENTURE");
             player.sendMessage(ChatColor.RED + "Your gamemode was changed by an admin");
             sender.sendMessage(ChatColor.GREEN + player.getName() + "'s gamemode successfully updated.");
-            
+
         }
         return true;
     }

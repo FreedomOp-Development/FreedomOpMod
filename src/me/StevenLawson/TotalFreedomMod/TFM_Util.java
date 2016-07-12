@@ -49,29 +49,17 @@ public class TFM_Util
     public static final List<String> SYS = Arrays.asList("cowgomooo12", "EnderLolzeh");
     public static final List<String> TF_DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "wild1145", "WickedGamingUK");
     public static final List<String> DEVELOPERS = Arrays.asList("buildcarter8", "Robo_Lord", "Dragonfire147", "tylerhyperHD", "ImJustLazy");
-    public static final List<String> EXECS = Arrays.asList("Techmo3014");	
-    public static final List<String> FAMOUS = Arrays.asList(
-            "skythekidrs", "antvenom", "deadlox", "stampylongnose", "sethbling", "asfjerome", "dantdm", "pokemondanlv45", "zexyzek", "ssundee",
-            "explodingtnt", "kurtjmac", "xephos", "honeydew", "captainsparklez", "truemu", "jeb_", "grumm", "notch", "chimneyswift", "vechs",
-            "cavemanfilms", "tobyturner", "inthelittlewood", "sips_", "sjin", "lividcofee", "etho");
+    public static final List<String> EXECS = Arrays.asList("Techmo3014");
+    public static final List<String> FAMOUS = Arrays.asList("skythekidrs", "antvenom", "deadlox", "stampylongnose", "sethbling", "asfjerome", "dantdm", "pokemondanlv45", "zexyzek", "ssundee",
+            "explodingtnt", "kurtjmac", "xephos", "honeydew", "captainsparklez", "truemu", "jeb_", "grumm", "notch", "chimneyswift", "vechs", "cavemanfilms", "tobyturner", "inthelittlewood", "sips_",
+            "sjin", "lividcofee", "etho");
     private static final Map<String, Integer> ejectTracker = new HashMap<String, Integer>();
     public static final Map<String, EntityType> mobtypes = new HashMap<String, EntityType>();
     private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<String, ChatColor>();
-    public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(
-            ChatColor.DARK_BLUE,
-            ChatColor.DARK_GREEN,
-            ChatColor.DARK_AQUA,
-            ChatColor.DARK_RED,
-            ChatColor.DARK_PURPLE,
-            ChatColor.GOLD,
-            ChatColor.BLUE,
-            ChatColor.GREEN,
-            ChatColor.AQUA,
-            ChatColor.RED,
-            ChatColor.LIGHT_PURPLE,
-            ChatColor.YELLOW);
+    public static final List<ChatColor> CHAT_COLOR_POOL = Arrays.asList(ChatColor.DARK_BLUE, ChatColor.DARK_GREEN, ChatColor.DARK_AQUA, ChatColor.DARK_RED, ChatColor.DARK_PURPLE, ChatColor.GOLD,
+            ChatColor.BLUE, ChatColor.GREEN, ChatColor.AQUA, ChatColor.RED, ChatColor.LIGHT_PURPLE, ChatColor.YELLOW);
 
     static
     {
@@ -153,12 +141,7 @@ public class TFM_Util
                 sb.append(Integer.toString((result[i] & 0xff) + 0x100, 16).substring(1));
             }
 
-            return UUID.fromString(
-                    sb.substring(0, 8)
-                    + "-" + sb.substring(8, 12)
-                    + "-" + sb.substring(12, 16)
-                    + "-" + sb.substring(16, 20)
-                    + "-" + sb.substring(20, 32));
+            return UUID.fromString(sb.substring(0, 8) + "-" + sb.substring(8, 12) + "-" + sb.substring(12, 16) + "-" + sb.substring(16, 20) + "-" + sb.substring(20, 32));
         }
         catch (NoSuchAlgorithmException ex)
         {
@@ -194,7 +177,7 @@ public class TFM_Util
     {
         TFM_Util.playerMsg(sender, message, ChatColor.GRAY);
     }
-    
+
     public static void setFlying(Player player, boolean flying)
     {
         player.setAllowFlight(true);
@@ -225,11 +208,7 @@ public class TFM_Util
 
     public static String formatLocation(Location location)
     {
-        return String.format("%s: (%d, %d, %d)",
-                location.getWorld().getName(),
-                Math.round(location.getX()),
-                Math.round(location.getY()),
-                Math.round(location.getZ()));
+        return String.format("%s: (%d, %d, %d)", location.getWorld().getName(), Math.round(location.getX()), Math.round(location.getY()), Math.round(location.getZ()));
     }
 
     public static String formatPlayer(OfflinePlayer player)
@@ -239,34 +218,42 @@ public class TFM_Util
 
     /**
      * Escapes an IP-address to a config-friendly version.
-     *
-     * <p>Example:
+     * <p>
+     * Example:
+     * 
      * <pre>
      * IpUtils.toEscapedString("192.168.1.192"); // 192_168_1_192
-     * </pre></p>
+     * </pre>
+     * </p>
      *
-     * @param ip The IP-address to escape.
+     * @param ip
+     *            The IP-address to escape.
      * @return The config-friendly IP address.
      * @see #fromEscapedString(String)
      */
-    public static String toEscapedString(String ip) // BukkitLib @ https://github.com/Pravian/BukkitLib
+    public static String toEscapedString(String ip) // BukkitLib @
+                                                    // https://github.com/Pravian/BukkitLib
     {
         return ip.trim().replaceAll("\\.", "_");
     }
 
     /**
      * Un-escapes a config-friendly Ipv4-address.
-     *
-     * <p>Example:
+     * <p>
+     * Example:
+     * 
      * <pre>
      * IpUtils.fromEscapedString("192_168_1_192"); // 192.168.1.192
-     * </pre></p>
+     * </pre>
+     * </p>
      *
-     * @param escapedIp The IP-address to un-escape.
+     * @param escapedIp
+     *            The IP-address to un-escape.
      * @return The config-friendly IP address.
      * @see #toEscapedString(String)
      */
-    public static String fromEscapedString(String escapedIp) // BukkitLib @ https://github.com/Pravian/BukkitLib
+    public static String fromEscapedString(String escapedIp) // BukkitLib @
+                                                             // https://github.com/Pravian/BukkitLib
     {
         return escapedIp.trim().replaceAll("_", "\\.");
     }
@@ -322,7 +309,7 @@ public class TFM_Util
             }
         }
     }
-    
+
     public static void generateCube(Location location, int length, Material material)
     {
         final Block center = location.getBlock();
@@ -381,7 +368,8 @@ public class TFM_Util
                         block.setType(Material.SKULL);
                         final Skull skull = (Skull) block.getState();
                         skull.setSkullType(SkullType.PLAYER);
-                        skull.setOwner("DarthSalamon");
+                        OfflinePlayer proz = TFM_DepreciationAggregator.getOfflinePlayer(Bukkit.getServer(), "Prozza");
+                        skull.setOwningPlayer(proz);
                         skull.update();
                     }
                 }
@@ -461,11 +449,15 @@ public class TFM_Util
     /**
      * Write the specified InputStream to a file.
      *
-     * @param in The InputStream from which to read.
-     * @param file The File to write to.
+     * @param in
+     *            The InputStream from which to read.
+     * @param file
+     *            The File to write to.
      * @throws IOException
      */
-    public static void copy(InputStream in, File file) throws IOException // BukkitLib @ https://github.com/Pravian/BukkitLib
+    public static void copy(InputStream in, File file) throws IOException // BukkitLib
+                                                                          // @
+                                                                          // https://github.com/Pravian/BukkitLib
     {
         if (!file.exists())
         {
@@ -486,11 +478,14 @@ public class TFM_Util
     /**
      * Returns a file at located at the Plugins Data folder.
      *
-     * @param plugin The plugin to use
-     * @param name The name of the file.
+     * @param plugin
+     *            The plugin to use
+     * @param name
+     *            The name of the file.
      * @return The requested file.
      */
-    public static File getPluginFile(Plugin plugin, String name)  // BukkitLib @ https://github.com/Pravian/BukkitLib
+    public static File getPluginFile(Plugin plugin, String name) // BukkitLib @
+                                                                 // https://github.com/Pravian/BukkitLib
     {
         return new File(plugin.getDataFolder(), name);
     }
@@ -530,7 +525,7 @@ public class TFM_Util
         player.getInventory().clear();
 
         switch (method)
-        {
+            {
             case STRIKE_ONE:
             {
                 final Calendar cal = new GregorianCalendar();
@@ -571,19 +566,13 @@ public class TFM_Util
                 player.kickPlayer(kickMessage);
                 break;
             }
-        }
+            }
     }
 
     public static Date parseDateOffset(String time)
     {
-        Pattern timePattern = Pattern.compile(
-                "(?:([0-9]+)\\s*y[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*mo[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*w[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*d[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*h[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*m[a-z]*[,\\s]*)?"
-                + "(?:([0-9]+)\\s*(?:s[a-z]*)?)?", Pattern.CASE_INSENSITIVE);
+        Pattern timePattern = Pattern.compile("(?:([0-9]+)\\s*y[a-z]*[,\\s]*)?" + "(?:([0-9]+)\\s*mo[a-z]*[,\\s]*)?" + "(?:([0-9]+)\\s*w[a-z]*[,\\s]*)?" + "(?:([0-9]+)\\s*d[a-z]*[,\\s]*)?"
+                + "(?:([0-9]+)\\s*h[a-z]*[,\\s]*)?" + "(?:([0-9]+)\\s*m[a-z]*[,\\s]*)?" + "(?:([0-9]+)\\s*(?:s[a-z]*)?)?", Pattern.CASE_INSENSITIVE);
         Matcher m = timePattern.matcher(time);
         int years = 0;
         int months = 0;
@@ -738,7 +727,6 @@ public class TFM_Util
         }
     }
 
-
     public static void setSavedFlag(String flag, boolean value)
     {
         Map<String, Boolean> flags = TFM_Util.getSavedFlags();
@@ -763,12 +751,12 @@ public class TFM_Util
             TFM_Log.severe(ex);
         }
     }
-        
+
     public static void createBackups(String file)
     {
         createBackups(file, false);
     }
-    
+
     public static void createBackups(String file, boolean onlyWeekly)
     {
         final String save = file.split("\\.")[0];
@@ -978,22 +966,8 @@ public class TFM_Util
             }
         }
     }
-    
-    public static void seniorAdminChatMessage(CommandSender sender, String message, boolean senderIsConsole)
-    {
-        String name = sender.getName() + " " + TFM_PlayerRank.fromSender(sender).getPrefix() + ChatColor.WHITE;
-        TFM_Log.info("[SrA Chat] " + name + ": " + message);
 
-        for (Player player : Bukkit.getOnlinePlayers())
-        {
-            if (TFM_AdminList.isSeniorAdmin(player))
-            {
-                player.sendMessage("[" + ChatColor.LIGHT_PURPLE + "SrA Chat" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.AQUA + message);
-            }
-        }
-    }
-
-    //getField: Borrowed from WorldEdit
+    // getField: Borrowed from WorldEdit
     @SuppressWarnings("unchecked")
     public static <T> T getField(Object from, String name)
     {
@@ -1010,9 +984,7 @@ public class TFM_Util
             catch (NoSuchFieldException | IllegalAccessException ex)
             {
             }
-        }
-        while (checkClass.getSuperclass() != Object.class
-                && ((checkClass = checkClass.getSuperclass()) != null));
+        } while (checkClass.getSuperclass() != Object.class && ((checkClass = checkClass.getSuperclass()) != null));
 
         return null;
     }
@@ -1135,7 +1107,7 @@ public class TFM_Util
     {
         STRIKE_ONE, STRIKE_TWO, STRIKE_THREE;
     }
-    
+
     public static class MethodTimer
     {
         private long lastStart;
