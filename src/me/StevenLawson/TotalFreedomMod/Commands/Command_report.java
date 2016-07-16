@@ -1,5 +1,6 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import me.StevenLawson.TotalFreedomMod.FOPM_Messages;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.Bukkit;
@@ -34,8 +35,8 @@ public class Command_report extends TFM_Command
         {
             if (TFM_AdminList.isSuperAdmin(admins))
             {
-                sender.sendMessage(TotalFreedomMod.FREEDOMOP_MOD + ChatColor.DARK_GREEN + "You have reported" + "&a" + p.getName() + "and This report has been sent to the admins.");
-                admins.sendMessage(TotalFreedomMod.FREEDOMOP_MOD + ChatColor.RED + " WARNING: " + p.getName() + " Has been reported for " + reason + "!");
+                sender.sendMessage(FOPM_Messages.MODTAG + ChatColor.DARK_GREEN + "You have reported" + "&a" + p.getName() + "and This report has been sent to the admins.");
+                admins.sendMessage(FOPM_Messages.MODTAG + ChatColor.RED + " WARNING: " + p.getName() + " Has been reported for " + reason + "!");
 
                 return true;
             }

